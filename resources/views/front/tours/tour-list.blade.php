@@ -1,5 +1,10 @@
 @extends('front.layouts.app2')
 
+@section('title', 'Morocco Tours & Desert Trips | Authentic Morocco Adventures')
+@section('meta_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
+@section('og_title', 'Morocco Tours & Desert Trips | Authentic Morocco Adventures')
+@section('og_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
+
 @section('content')
     {{-- Shift the tours hero image focus downward so the fortress/port at the
          bottom is visible instead of only the sky at the top. Desktop is short &

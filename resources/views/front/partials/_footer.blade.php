@@ -25,6 +25,7 @@
                         <div class="mt-20">
                             <img src="{{ asset('assets/images/authentic-morocco-adventures-tripadvisor-travelers-choice-2026-award.webp') }}"
                                 alt="Authentic Morocco Adventures — Tripadvisor Travelers' Choice 2026 award winner"
+                                width="1021" height="225"
                                 title="Authentic Morocco Adventures — Tripadvisor Travelers' Choice 2026"
                                 width="300" loading="lazy"
                                 data-caption="Authentic Morocco Adventures — Tripadvisor Travelers' Choice 2026 award"
@@ -60,7 +61,7 @@
                                      match the rest of the icon row (filter turns it white). --}}
                                 <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
                                     target="_blank" rel="noopener" class="d-flex align-items-center" aria-label="Tripadvisor">
-                                    <img src="{{ asset('assets/images/icon/tripdavisor.svg') }}" alt="Tripadvisor"
+                                    <img src="{{ asset('assets/images/icon/tripdavisor.svg') }}" alt="Tripadvisor" width="18" height="18"
                                         style="width: 18px; height: 18px; filter: brightness(0) invert(1);">
                                 </a>
                             </div>
@@ -73,8 +74,8 @@
                                 Trusted by the World&rsquo;s Leading Travel Brands
                             </div>
                             <div class="footer-trusted-brands__logos d-flex items-center flex-wrap x-gap-20 y-gap-10">
-                                <img src="{{ asset('assets/images/clients/bokun.webp') }}" alt="Bókun" loading="lazy" class="footer-brand-logo">
-                                <img src="{{ asset('assets/images/clients/tourhub.png') }}" alt="Tourhub" loading="lazy" class="footer-brand-logo">
+                                <img src="{{ asset('assets/images/clients/bokun.webp') }}" alt="Bókun" loading="lazy" width="200" height="91" class="footer-brand-logo">
+                                <img src="{{ asset('assets/images/clients/tourhub.png') }}" alt="Tourhub" loading="lazy" width="198" height="40" class="footer-brand-logo">
                                 <img src="{{ asset('assets/images/clients/tourradar.svg') }}" alt="TourRadar" loading="lazy" class="footer-brand-logo">
                                 <img src="{{ asset('assets/images/clients/tripadvisor.svg') }}" alt="Tripadvisor" loading="lazy" class="footer-brand-logo">
                                 <a href="https://fr.trustpilot.com/review/authenticmoroccoadventures.com" target="_blank" rel="noopener" aria-label="Read our reviews on Trustpilot" class="d-flex align-items-center">

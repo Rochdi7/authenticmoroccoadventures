@@ -1,6 +1,9 @@
 @extends('front.layouts.app2')
 
-@section('title', 'All Locations')
+@section('title', 'Morocco Travel Destinations & Places to Visit | AMA Guide')
+@section('meta_description', 'Explore Morocco destination guides - Marrakech, Fes, Merzouga, Chefchaouen and more, with the best tours and things to do in each place.')
+@section('og_title', 'Morocco Travel Destinations & Places to Visit | AMA Guide')
+@section('og_description', 'Explore Morocco destination guides - Marrakech, Fes, Merzouga, Chefchaouen and more, with the best tours and things to do in each place.')
 
 @section('content')
 

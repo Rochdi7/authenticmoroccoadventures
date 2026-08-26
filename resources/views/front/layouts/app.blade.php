@@ -35,11 +35,11 @@
     {{-- SEO meta tags for homepage --}}
     @if (Request::is('/'))
         {{-- Title --}}
-        <title>Authentic Morocco Adventures | Private Morocco Tours & Authentic Local Experiences</title>
+        <title>Private Morocco Tours & Desert Trips | Authentic Morocco</title>
 
         {{-- Meta description --}}
         <meta name="description"
-              content="Authentic Morocco Adventures offers private and authentic tours across Morocco. Explore Marrakech, desert adventures, souks, and cultural gems with a local Moroccan tour guide.">
+              content="Private Morocco tours with a local guide - Sahara desert trips, Marrakech excursions and Atlas Mountains treks, tailored to how you want to travel.">
 
         {{-- Canonical --}}
         <link rel="canonical" href="https://www.authenticmoroccoadventures.com/">
@@ -56,7 +56,7 @@
 
         {{-- Open Graph --}}
         <meta property="og:type" content="website">
-        <meta property="og:title" content="Authentic Morocco Adventures | Private Morocco Tours & Authentic Local Experiences">
+        <meta property="og:title" content="Private Morocco Tours & Desert Trips | Authentic Morocco">
         <meta property="og:description"
               content="Private and authentic Morocco tours guided by a local expert. Discover the magic of Morocco with personalized desert tours, Marrakech explorations, and cultural gems.">
         <meta property="og:url" content="https://www.authenticmoroccoadventures.com/">

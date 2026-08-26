@@ -1,6 +1,9 @@
 @extends('front.layouts.app2')
 
 @section('title', 'Help Center - Authentic Morocco Adventures')
+@section('meta_description', 'Answers to common questions about booking Morocco tours - payments, cancellations, what to bring, group sizes and planning your trip.')
+@section('og_title', 'Help Center - Authentic Morocco Adventures')
+@section('og_description', 'Answers to common questions about booking Morocco tours - payments, cancellations, what to bring, group sizes and planning your trip.')
 
 @push('meta')
 <meta name="description" content="Get help with booking, payments, refunds, and planning your Moroccan adventure with Authentic Morocco Adventures. Explore our Help Center for FAQs and support.">

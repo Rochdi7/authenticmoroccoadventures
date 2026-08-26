@@ -1,6 +1,9 @@
 @extends('front.layouts.app2')
 
 @section('title', 'Contact Us | Authentic Morocco Adventures')
+@section('meta_description', 'Contact Authentic Morocco Adventures to plan your Morocco tour. Message us for a custom itinerary, a quote or travel advice from local guides.')
+@section('og_title', 'Contact Us | Authentic Morocco Adventures')
+@section('og_description', 'Contact Authentic Morocco Adventures to plan your Morocco tour. Message us for a custom itinerary, a quote or travel advice from local guides.')
 
 @section('content')
 

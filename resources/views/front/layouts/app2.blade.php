@@ -193,6 +193,9 @@
             }
         }
     </style>
+
+    {{-- Page-level JSON-LD pushed by child views (see tours/activities/trekking details) --}}
+    @stack('schema')
 </head>
 
 <body>

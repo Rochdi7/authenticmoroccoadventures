@@ -1,5 +1,10 @@
 @extends('front.layouts.app2')
 
+@section('title', 'Morocco Activities & Day Excursions | Authentic Morocco')
+@section('meta_description', 'Book Morocco activities and half-day excursions - camel rides, quad biking, hammam, cooking classes and guided Marrakech experiences.')
+@section('og_title', 'Morocco Activities & Day Excursions | Authentic Morocco')
+@section('og_description', 'Book Morocco activities and half-day excursions - camel rides, quad biking, hammam, cooking classes and guided Marrakech experiences.')
+
 @section('content')
     {{-- Shift the hero image focus downward so the foreground is visible instead of
          only the sky at the top. Desktop is short & wide, so ease the crop back up;

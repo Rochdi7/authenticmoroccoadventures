@@ -1,5 +1,8 @@
  @extends('front.layouts.app2')
- @section('title', 'Blog')
+ @section('title', 'Morocco Travel Blog - Tips, Guides & Itineraries')
+@section('meta_description', 'Morocco travel tips, destination guides and itinerary ideas from local guides - when to visit, what to pack and where to go in Morocco.')
+@section('og_title', 'Morocco Travel Blog - Tips, Guides & Itineraries')
+@section('og_description', 'Morocco travel tips, destination guides and itinerary ideas from local guides - when to visit, what to pack and where to go in Morocco.')
 
  @section('content')
 

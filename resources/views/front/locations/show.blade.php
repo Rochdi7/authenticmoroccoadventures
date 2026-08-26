@@ -1,7 +1,7 @@
 @extends('front.layouts.app2')
 
 @php
-    $seoTitle = ($location->name ?? 'Destination') . ' Tours & Travel Guide | Authentic Morocco Adventures';
+    $seoTitle = ($location->name ?? 'Destination') . ' Tours & Things to Do | Morocco Guide';
     $seoDesc = \Illuminate\Support\Str::limit(trim(strip_tags($location->seo_description ?: ($location->description ?? ''))), 155);
     $seoDesc = $seoDesc !== '' ? $seoDesc : 'Explore ' . ($location->name ?? 'this destination') . ' with Authentic Morocco Adventures — tours, activities and local expert travel tips.';
     $seoImage = optional($location->getFirstMedia('cover'))->getUrl() ?: null;
@@ -21,7 +21,7 @@
         <div data-anim-wrap class="container">
             <div data-anim-child="slide-up" class="row y-gap-10 justify-between items-center">
                 <div class="col-auto">
-                    <h2 class="text-30">Featured Trips in {{ $location->name }}</h2>
+                    <h1 class="text-30">Featured Trips in {{ $location->name }}</h1>
                 </div>
             </div>
 

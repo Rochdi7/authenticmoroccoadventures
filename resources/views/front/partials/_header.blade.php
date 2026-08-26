@@ -103,7 +103,7 @@
             <div class="header__logo">
                 <a href="{{ route('home') }}" class="header__logo">
                     <img src="/assets/images/logo/ama_logo_white.png" alt="Authentic Morocco Adventures Logo"
-                        class="header__logoImg">
+                        width="1126" height="221" class="header__logoImg">
                 </a>
 
                 <style>
@@ -148,7 +148,7 @@
 
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
                 target="_blank" class="tripadvisor-icon-mobile d-flex items-center ml-20">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor">
+                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18">
             </a>
 
             <style>
@@ -173,7 +173,7 @@
             <!-- Tripadvisor icon with flying hover effect -->
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
                 target="_blank" class="ml-20 d-flex items-center tripadvisor-hover">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor">
+                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18">
             </a>
         </div>
         <style>

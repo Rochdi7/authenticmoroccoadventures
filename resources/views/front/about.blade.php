@@ -1,6 +1,9 @@
 @extends('front.layouts.app2')
 
 @section('title', 'About Us - Authentic Morocco Adventures')
+@section('meta_description', 'Meet Authentic Morocco Adventures - a local Morocco tour operator running guided desert tours, city excursions and Atlas Mountains treks.')
+@section('og_title', 'About Us - Authentic Morocco Adventures')
+@section('og_description', 'Meet Authentic Morocco Adventures - a local Morocco tour operator running guided desert tours, city excursions and Atlas Mountains treks.')
 
 @section('content')
 

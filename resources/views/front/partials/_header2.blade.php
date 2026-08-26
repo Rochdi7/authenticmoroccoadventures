@@ -11,7 +11,8 @@
                 <a href="{{ route('home') }}" class="header__logo">
                     <img id="header-logo" src="/assets/images/logo/ama_logo_dark.png"
                         data-default="/assets/images/logo/ama_logo_dark.png"
-                        data-white="/assets/images/logo/ama_logo_white.png" alt="Authentic Morocco Adventures Logo">
+                        data-white="/assets/images/logo/ama_logo_white.png" alt="Authentic Morocco Adventures Logo"
+                        width="1115" height="224">
                 </a>
 
                 <div class="xl:d-none ml-30">
@@ -25,7 +26,7 @@
         <div class="headerMobile__right">
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
                 target="_blank" class="tripadvisor-icon-mobile d-flex items-center">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor">
+                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18">
             </a>
         </div>
 
@@ -42,7 +43,7 @@
         <div class="header__right">
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
                 target="_blank" class="button -sm rounded-200 ml-30 d-flex items-center">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor"
+                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18"
                     style="width: 18px; height: 18px; margin-right: 5px;">
                 Tripadvisor
             </a>

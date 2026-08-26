@@ -2,9 +2,9 @@
 
 @section('title', 'Terms and Conditions - Authentic Morocco Adventures')
 
-@push('meta')
-    <meta name="description" content="Review the terms and conditions for booking unforgettable Moroccan tours with Authentic Morocco Adventures. Discover our policies on payments, cancellations, privacy, and guest responsibilities.">
-@endpush
+@section('meta_description', 'Review the terms and conditions for booking Morocco tours with Authentic Morocco Adventures - payments, cancellations, refunds and guest responsibilities.')
+@section('og_title', 'Terms and Conditions - Authentic Morocco Adventures')
+@section('og_description', 'Review the terms and conditions for booking Morocco tours with Authentic Morocco Adventures - payments, cancellations, refunds and guest responsibilities.')
 
 @section('content')
 

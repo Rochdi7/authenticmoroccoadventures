@@ -1,8 +1,18 @@
  @extends('front.layouts.app2')
 
  @php
-     $seoTitle = ($trekking->title ?? 'Morocco Trek') . ' | Authentic Morocco Adventures';
-     $seoDesc = \Illuminate\Support\Str::limit(trim(strip_tags($trekking->overview ?? '')), 155);
+     $seoBase  = trim($trekking->title ?? 'Morocco Trek');
+     // Append the brand only when the result still fits Google's ~60-char title budget,
+     // so descriptive keywords are never truncated away in the SERP.
+     $seoTitle = mb_strlen($seoBase) + 31 <= 60
+         ? $seoBase . ' | Authentic Morocco Adventures'
+         : $seoBase;
+     // Prefix with the title so the description is unique per trek even when two records
+     // share boilerplate overview text (identical meta descriptions compete in search).
+     $seoBody = trim(strip_tags($trekking->overview ?? ''));
+     $seoDesc = $seoBody !== ''
+         ? \Illuminate\Support\Str::limit($seoBase . ' - ' . $seoBody, 152)
+         : '';
      $seoDesc = $seoDesc !== '' ? $seoDesc : 'Book ' . ($trekking->title ?? 'this Morocco trek') . ' with Authentic Morocco Adventures — a local expert guide for an authentic Morocco trekking experience.';
      $seoImage = ($trekking->getFirstMediaUrl('gallery') ?: null);
  @endphp
@@ -16,7 +26,47 @@
      @section('og_image', $seoImage)
  @endif
 
- @section('content')
+ 
+@push('schema')
+@php
+    // TouristTrip schema — built ONLY from fields that hold real data.
+    // Deliberately omits `offers` (base_price is 0.00 for every record) and
+    // `aggregateRating` (reviews_count is 0; the 5.0 rating is a column default,
+    // not earned review data). Publishing either would be fabricated markup.
+    $schema = array_filter([
+        '@context'    => 'https://schema.org',
+        '@type'       => 'TouristTrip',
+        'name'        => $trekking->title ?? null,
+        'description' => trim(strip_tags($trekking->overview ?? '')) ?: null,
+        'url'         => url()->current(),
+        'image'       => $seoImage ?: null,
+        'touristType' => 'Leisure travellers visiting Morocco',
+        'provider'    => [
+            '@type'   => 'TravelAgency',
+            'name'    => 'Authentic Morocco Adventures',
+            'url'     => url('/'),
+            'telephone' => '+212666107312',
+            'address' => [
+                '@type'           => 'PostalAddress',
+                'addressLocality' => 'Marrakech',
+                'addressRegion'   => 'Marrakech-Safi',
+                'addressCountry'  => 'MA',
+            ],
+        ],
+    ]);
+
+    if (!empty($trekking->duration)) {
+        $schema['itinerary'] = ['@type' => 'ItemList', 'name' => $trekking->duration];
+    }
+    if (!empty($trekking->location?->name)) {
+        $locName = trim($trekking->location->name);
+        $schema['location'] = ['@type' => 'Place', 'name' => \Illuminate\Support\Str::endsWith($locName, 'Morocco') ? $locName : $locName . ', Morocco'];
+    }
+@endphp
+<script type="application/ld+json">{!! json_encode($schema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+@endpush
+
+@section('content')
      @if (!empty($trekking))
          <div data-anim="fade" class="container">
              <div class="row justify-between py-30 mt-80">
@@ -55,9 +105,9 @@
                              @endif
                          </div>
 
-                         <h2 class="text-40 sm:text-30 lh-14 mt-20">
+                         <h1 class="text-40 sm:text-30 lh-14 mt-20">
                              {{ $trekking->title }}
-                         </h2>
+                         </h1>
 
                          <div class="row y-gap-20 justify-between pt-20">
                              <div class="col-auto">

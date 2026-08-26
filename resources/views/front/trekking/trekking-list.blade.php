@@ -1,5 +1,10 @@
 @extends('front.layouts.app2')
 
+@section('title', 'Atlas Mountains Trekking Tours in Morocco | Guided Treks')
+@section('meta_description', 'Guided Atlas Mountains trekking in Morocco, including Mount Toubkal ascents and Berber village routes with experienced local mountain guides.')
+@section('og_title', 'Atlas Mountains Trekking Tours in Morocco | Guided Treks')
+@section('og_description', 'Guided Atlas Mountains trekking in Morocco, including Mount Toubkal ascents and Berber village routes with experienced local mountain guides.')
+
 @section('content')
     {{-- Shift the hero image focus downward so the foreground is visible instead of
          only the sky at the top. Desktop is short & wide, so ease the crop back up;
