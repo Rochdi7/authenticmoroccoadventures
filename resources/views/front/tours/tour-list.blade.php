@@ -1,8 +1,8 @@
 @extends('front.layouts.app2')
 
-@section('title', 'Morocco Tours & Desert Trips | Authentic Morocco Adventures')
+@section('title', 'Morocco Tours and Sahara Desert Trips | Book Online')
 @section('meta_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
-@section('og_title', 'Morocco Tours & Desert Trips | Authentic Morocco Adventures')
+@section('og_title', 'Morocco Tours and Sahara Desert Trips | Book Online')
 @section('og_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
 
 @section('content')

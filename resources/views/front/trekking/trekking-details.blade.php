@@ -11,7 +11,7 @@
      // share boilerplate overview text (identical meta descriptions compete in search).
      $seoBody = trim(strip_tags($trekking->overview ?? ''));
      $seoDesc = $seoBody !== ''
-         ? \Illuminate\Support\Str::limit($seoBase . ' - ' . $seoBody, 152)
+         ? \Illuminate\Support\Str::limit($seoBase . ' - ' . $seoBody, 145)
          : '';
      $seoDesc = $seoDesc !== '' ? $seoDesc : 'Book ' . ($trekking->title ?? 'this Morocco trek') . ' with Authentic Morocco Adventures — a local expert guide for an authentic Morocco trekking experience.';
      $seoImage = ($trekking->getFirstMediaUrl('gallery') ?: null);

@@ -11,7 +11,7 @@
      // share boilerplate overview text (identical meta descriptions compete in search).
      $seoBody = trim(strip_tags($tour->overview ?? ''));
      $seoDesc = $seoBody !== ''
-         ? \Illuminate\Support\Str::limit($seoBase . ' - ' . $seoBody, 152)
+         ? \Illuminate\Support\Str::limit($seoBase . ' - ' . $seoBody, 145)
          : '';
      $seoDesc = $seoDesc !== '' ? $seoDesc : 'Book ' . ($tour->title ?? 'this Morocco tour') . ' with Authentic Morocco Adventures — a local expert guide for an authentic Morocco experience.';
      $seoImage = ($tour->getFirstMediaUrl('cover') ?: null);

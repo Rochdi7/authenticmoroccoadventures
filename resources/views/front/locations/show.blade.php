@@ -1,7 +1,7 @@
 @extends('front.layouts.app2')
 
 @php
-    $seoTitle = ($location->name ?? 'Destination') . ' Tours & Things to Do | Morocco Guide';
+    $seoTitle = ($location->name ?? 'Destination') . ' Tours and Things to Do';
     $seoDesc = \Illuminate\Support\Str::limit(trim(strip_tags($location->seo_description ?: ($location->description ?? ''))), 155);
     $seoDesc = $seoDesc !== '' ? $seoDesc : 'Explore ' . ($location->name ?? 'this destination') . ' with Authentic Morocco Adventures — tours, activities and local expert travel tips.';
     $seoImage = optional($location->getFirstMedia('cover'))->getUrl() ?: null;
