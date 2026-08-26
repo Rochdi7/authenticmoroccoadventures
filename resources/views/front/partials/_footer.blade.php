@@ -127,6 +127,7 @@
                                     <a class="d-block fw-500 text-white" href="{{ route('blog.index') }}">Blog</a>
                                     <a class="d-block fw-500 text-white" href="{{ route('front.contact') }}">Contact</a>
                                     <a class="d-block fw-500 text-white" href="{{ route('front.terms') }}">Terms</a>
+                                    <a class="d-block fw-500 text-white" href="{{ route('front.privacy') }}">Privacy</a>
                                     <a class="d-block fw-500 text-white" href="{{ route('front.help-center') }}">Help Center</a>
                                 </div>
                             </nav>

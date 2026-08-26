@@ -160,6 +160,10 @@
                                 Terms
                             </a>
 
+                            <a class="d-block fw-500" href="{{ route('front.privacy') }}">
+                                Privacy
+                            </a>
+
                             <a class="d-block fw-500" href="{{ route('front.help-center') }}">
                                 Help Center
                             </a>
