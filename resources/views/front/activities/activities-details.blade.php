@@ -148,12 +148,15 @@
                                      </div>
 
 
-                                     <div class="col-auto">
-                                         <div class="d-flex items-center">
-                                             <i class="icon-pin text-16 mr-5"></i>
-                                             {{ $activity->location->name ?? 'Unknown Location' }}
+                                     @if (!empty($activity->location?->name))
+                                         <div class="col-auto">
+                                             <div class="d-flex items-center">
+                                                 <i class="icon-pin text-16 mr-5"></i>
+                                                 <a href="{{ route('front.locations.show', $activity->location->slug) }}"
+                                                     class="text-inherit">{{ $activity->location->name }}</a>
+                                             </div>
                                          </div>
-                                     </div>
+                                     @endif
 
                                      <div class="col-auto">
                                          <div class="d-flex items-center">
@@ -1316,7 +1319,7 @@
                                          <div class="tourCard__content px-10 pt-10">
                                              <div class="tourCard__location d-flex items-center text-13 text-light-2">
                                                  <i class="icon-pin d-flex text-16 text-light-2 mr-5"></i>
-                                                 {{ $similarActivity->location->name ?? 'Unknown Location' }}
+                                                 {{ $similarActivity->location?->name }}
                                              </div>
 
                                              <h3 class="tourCard__title text-16 fw-500 mt-5">
