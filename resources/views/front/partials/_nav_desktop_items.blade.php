@@ -4,14 +4,14 @@
 
 {{-- ===== MOROCCO TOURS (multi-day) grouped by city ===== --}}
 <div class="desktopNav__item megaNav__item">
-    <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}">
+    <a href="{{ route('front.tours.multiDay') }}">
         Tours <i class="icon-chevron-down"></i>
     </a>
     <ul class="megaFlyout">
         @forelse ($navMultiDayByCity as $city => $tours)
             @php $citySlug = \Illuminate\Support\Str::slug($city); @endphp
             <li class="megaFlyout__li -has-sub">
-                <a href="{{ route('front.tours.index', ['type' => 'multi_day', 'location_slug' => $citySlug]) }}">
+                <a href="{{ route('front.tours.multiDayFrom', $citySlug) }}">
                     From {{ \Illuminate\Support\Str::before($city, ',') }}
                 </a>
                 <ul class="megaFlyout__sub">
@@ -25,7 +25,7 @@
             </li>
         @empty
             <li class="megaFlyout__li">
-                <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}">All Tours</a>
+                <a href="{{ route('front.tours.multiDay') }}">All Tours</a>
             </li>
         @endforelse
     </ul>
@@ -33,14 +33,14 @@
 
 {{-- ===== DAY TRIPS grouped by city ===== --}}
 <div class="desktopNav__item megaNav__item">
-    <a href="{{ route('front.tours.index', ['type' => 'day_trip']) }}">
+    <a href="{{ route('front.tours.dayTrips') }}">
         Day Trips <i class="icon-chevron-down"></i>
     </a>
     <ul class="megaFlyout">
         @forelse ($navDayTripsByCity as $city => $tours)
             @php $citySlug = \Illuminate\Support\Str::slug($city); @endphp
             <li class="megaFlyout__li -has-sub">
-                <a href="{{ route('front.tours.index', ['type' => 'day_trip', 'location_slug' => $citySlug]) }}">
+                <a href="{{ route('front.tours.dayTripsFrom', $citySlug) }}">
                     {{ \Illuminate\Support\Str::before($city, ',') }} excursions
                 </a>
                 <ul class="megaFlyout__sub">
@@ -54,7 +54,7 @@
             </li>
         @empty
             <li class="megaFlyout__li">
-                <a href="{{ route('front.tours.index', ['type' => 'day_trip']) }}">All Day Trips</a>
+                <a href="{{ route('front.tours.dayTrips') }}">All Day Trips</a>
             </li>
         @endforelse
     </ul>

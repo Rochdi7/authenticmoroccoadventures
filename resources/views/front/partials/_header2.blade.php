@@ -1,7 +1,7 @@
 <header class="header -type-8 js-header">
     <div data-anim="fade delay-3" class="header__container container">
         <div class="headerMobile__left">
-            <button class="header__menuBtn js-menu-button">
+            <button type="button" class="header__menuBtn js-menu-button" aria-label="Open mobile navigation menu">
                 <i class="icon-main-menu"></i>
             </button>
         </div>
@@ -59,7 +59,7 @@
     <div class="menu__container">
         <div class="menu__header">
             <h4>Main Menu</h4>
-            <button class="js-menu-button"><i class="icon-cross text-10"></i></button>
+            <button type="button" class="js-menu-button" aria-label="Close mobile navigation menu"><i class="icon-cross text-10" aria-hidden="true"></i></button>
         </div>
 
         <div class="menu__content">

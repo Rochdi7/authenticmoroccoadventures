@@ -3,25 +3,25 @@
 
 {{-- Tours -> city -> tours --}}
 <li class="menuNav__item -has-submenu js-has-submenu">
-    <a>
+    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
         Tours
         <i class="icon-chevron-right"></i>
     </a>
     <ul class="submenu">
-        <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+        <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
         <li class="submenu__item">
-            <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}">All Tours</a>
+            <a href="{{ route('front.tours.multiDay') }}">All Tours</a>
         </li>
         @foreach ($navMultiDayByCity as $city => $tours)
             <li class="submenu__item -has-submenu js-has-submenu">
-                <a>
+                <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
                     From {{ \Illuminate\Support\Str::before($city, ',') }}
                     <i class="icon-chevron-right"></i>
                 </a>
                 <ul class="submenu">
-                    <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+                    <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
                     <li class="submenu__item">
-                        <a href="{{ route('front.tours.index', ['type' => 'multi_day', 'location_slug' => \Illuminate\Support\Str::slug($city)]) }}">
+                        <a href="{{ route('front.tours.multiDayFrom', \Illuminate\Support\Str::slug($city)) }}">
                             All From {{ \Illuminate\Support\Str::before($city, ',') }}
                         </a>
                     </li>
@@ -38,25 +38,25 @@
 
 {{-- Day Trips -> city -> tours --}}
 <li class="menuNav__item -has-submenu js-has-submenu">
-    <a>
+    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
         Day Trips
         <i class="icon-chevron-right"></i>
     </a>
     <ul class="submenu">
-        <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+        <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
         <li class="submenu__item">
-            <a href="{{ route('front.tours.index', ['type' => 'day_trip']) }}">All Day Trips</a>
+            <a href="{{ route('front.tours.dayTrips') }}">All Day Trips</a>
         </li>
         @foreach ($navDayTripsByCity as $city => $tours)
             <li class="submenu__item -has-submenu js-has-submenu">
-                <a>
+                <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
                     {{ \Illuminate\Support\Str::before($city, ',') }} excursions
                     <i class="icon-chevron-right"></i>
                 </a>
                 <ul class="submenu">
-                    <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+                    <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
                     <li class="submenu__item">
-                        <a href="{{ route('front.tours.index', ['type' => 'day_trip', 'location_slug' => \Illuminate\Support\Str::slug($city)]) }}">
+                        <a href="{{ route('front.tours.dayTripsFrom', \Illuminate\Support\Str::slug($city)) }}">
                             All {{ \Illuminate\Support\Str::before($city, ',') }} excursions
                         </a>
                     </li>
@@ -73,12 +73,12 @@
 
 {{-- Activities -> full list --}}
 <li class="menuNav__item -has-submenu js-has-submenu">
-    <a>
+    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
         Activities
         <i class="icon-chevron-right"></i>
     </a>
     <ul class="submenu">
-        <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+        <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
         <li class="submenu__item">
             <a href="{{ route('front.activities.index') }}">All Activities</a>
         </li>
@@ -92,12 +92,12 @@
 
 {{-- Trekking -> treks --}}
 <li class="menuNav__item -has-submenu js-has-submenu">
-    <a>
+    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
         Trekking
         <i class="icon-chevron-right"></i>
     </a>
     <ul class="submenu">
-        <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+        <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
         <li class="submenu__item">
             <a href="{{ route('front.trekking.index') }}">All Treks</a>
         </li>
@@ -111,12 +111,12 @@
 
 {{-- About (dropdown) --}}
 <li class="menuNav__item -has-submenu js-has-submenu">
-    <a>
+    <a role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">
         About
         <i class="icon-chevron-right"></i>
     </a>
     <ul class="submenu">
-        <li class="submenu__item js-nav-list-back"><a>Back</a></li>
+        <li class="submenu__item js-nav-list-back"><a role="button" tabindex="0" aria-label="Back to the previous menu">Back</a></li>
         <li class="submenu__item">
             <a href="{{ route('front.about') }}">About</a>
         </li>

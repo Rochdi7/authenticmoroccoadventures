@@ -94,7 +94,7 @@
 <header class="header -type-8 js-header">
     <div data-anim="fade delay-3" class="header__container container">
         <div class="headerMobile__left">
-            <button class="header__menuBtn js-menu-button">
+            <button type="button" class="header__menuBtn js-menu-button" aria-label="Open mobile navigation menu">
                 <i class="icon-main-menu text-white"></i>
             </button>
         </div>
@@ -165,7 +165,7 @@
 
         <div class="header__right">
             <!-- LET'S PLAN button -->
-            <a href="#" class="button -sm -outline-white text-white rounded-200 ml-30 px-20 py-8 fs-14"
+            <a href="{{ route('front.contact') }}" class="button -sm -outline-white text-white rounded-200 ml-30 px-20 py-8 fs-14"
                 style="font-weight: 600;">
                 Let's Plan
             </a>
@@ -223,7 +223,7 @@
     <div class="menu__container">
         <div class="menu__header">
             <h4>Main Menu</h4>
-            <button class="js-menu-button"><i class="icon-cross text-10"></i></button>
+            <button type="button" class="js-menu-button" aria-label="Close mobile navigation menu"><i class="icon-cross text-10" aria-hidden="true"></i></button>
         </div>
 
         <div class="menu__content">
@@ -234,6 +234,18 @@
                 @include('front.partials._nav_mobile_items')
             </ul>
         </div>
+
+        {{-- WCAG AA contrast fix. The brand gold #C49539 measures 2.73:1 on white
+     (needs 4.5:1) but 6.93:1 on the dark header/footer, where it is fine.
+     So it is darkened ONLY on light surfaces - the drawer and any explicitly
+     light block. The brand colour itself is unchanged everywhere else. --}}
+<style>
+  .menu__footer .text-accent-1,
+  .bg-white .text-accent-1,
+  .text-accent-1.-on-light {
+    color: #8A6A28; /* 5.03:1 on white - passes WCAG AA */
+  }
+</style>
 
         <div class="menu__footer">
             <i class="icon-headphone text-50"></i>

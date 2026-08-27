@@ -463,6 +463,19 @@
     </style>
 @endpush
 
+{{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
+     They are field labels, not document headings, so they are now <span class="h5-label">.
+     This block reproduces the theme's original `.searchFormItem__content > h5` rules
+     verbatim so the rendering is unchanged. --}}
+<style>
+  .searchFormItem__content > .h5-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+</style>
+
 @section('content')
 
     <section data-anim-wrap class="hero -type-8">
@@ -488,11 +501,11 @@
                         {{-- TITLE & TEXT (typewriter effect via JS below) --}}
                         <div class="heroIntro">
                             <h1 class="hero__title text-white heroIntro__title js-typewriter"
-                                data-text="Find Next Place To Visit">Find Next Place To Visit</h1>
+                                data-text="Private Morocco Tours &amp; Sahara Desert Adventures">Private Morocco Tours &amp; Sahara Desert Adventures</h1>
                             <div class="hero__text text-white mt-10 heroIntro__text js-typewriter"
-                                data-text="Discover amazing places at exclusive deals. Eat, Shop, Visit interesting places around the world.">
-                                Discover amazing places at exclusive deals. Eat, Shop, Visit interesting places around the
-                                world.</div>
+                                data-text="Travel Morocco with a local guide. Sahara desert tours, Marrakech day trips and Atlas Mountains treks, planned around how you want to travel.">
+                                Travel Morocco with a local guide. Sahara desert tours, Marrakech day trips and Atlas
+                                Mountains treks, planned around how you want to travel.</div>
                         </div>
 
                         {{-- SEARCH FILTER — theme-default placement inside the hero on
@@ -510,7 +523,7 @@
                                                     <i class="text-20 icon-pin"></i>
                                                 </div>
                                                 <div class="searchFormItem__content">
-                                                    <h5>Where</h5>
+                                                    <span class="h5-label">Where</span>
                                                     <div class="js-select-control-chosen">Search destinations</div>
                                                 </div>
                                             </div>
@@ -546,7 +559,7 @@
                                                     <i class="text-20 icon-calendar"></i>
                                                 </div>
                                                 <div class="searchFormItem__content">
-                                                    <h5>When</h5>
+                                                    <span class="h5-label">When</span>
                                                     <div>
                                                         <span class="js-first-date">Add dates</span>
                                                         <span class="js-last-date"></span>
@@ -575,7 +588,7 @@
                                                     <i class="text-20 icon-flag"></i>
                                                 </div>
                                                 <div class="searchFormItem__content">
-                                                    <h5>Tour Type</h5>
+                                                    <span class="h5-label">Tour Type</span>
                                                     <div class="js-select-control-chosen">All tour</div>
                                                 </div>
                                             </div>
@@ -964,7 +977,7 @@
                         <h2 class="text-30">Trending Morocco Destinations</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.locations.index') }}" class="buttonArrow d-flex items-center">
+                        <a href="{{ route('front.locations.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco destinations">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1172,7 +1185,7 @@
                         <h2 class="text-30 md:text-24">Best Morocco Multi-Day Tours</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}" class="buttonArrow d-flex items-center">
+                        <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}" class="buttonArrow d-flex items-center" aria-label="See all multi-day Morocco tours">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1306,7 +1319,7 @@
                         <h2 class="text-30">Best Morocco Day Trips</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.tours.index', ['type' => 'day_trip']) }}"
+                        <a href="{{ route('front.tours.index', ['type' => 'day_trip']) }}" aria-label="See all Morocco day trips"
                             class="buttonArrow d-flex items-center">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
@@ -1461,36 +1474,36 @@
 
                 <div class="col-lg-3 col-6">
                     <div data-anim-child="fade delay-2" class="text-center">
-                        <img src="{{ asset('assets/img/icons/3/1.svg') }}" alt="Destinations icon">
+                        <img src="{{ asset('assets/img/icons/3/1.svg') }}" alt="" aria-hidden="true" width="60" height="61" loading="lazy" decoding="async">
 
-                        <h3 class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">12</h3>
+                        <div class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">12</div>
                         <p class="lh-15">Total Destinations</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-6">
                     <div data-anim-child="fade delay-3" class="text-center">
-                        <img src="{{ asset('assets/img/icons/3/2.svg') }}" alt="Tours icon">
+                        <img src="{{ asset('assets/img/icons/3/2.svg') }}" alt="" aria-hidden="true" width="60" height="61" loading="lazy" decoding="async">
 
-                        <h3 class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">45</h3>
+                        <div class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">45</div>
                         <p class="lh-15">Amazing Tours</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-6">
                     <div data-anim-child="fade delay-4" class="text-center">
-                        <img src="{{ asset('assets/img/icons/3/3.svg') }}" alt="Happy customers icon">
+                        <img src="{{ asset('assets/img/icons/3/3.svg') }}" alt="" aria-hidden="true" width="60" height="61" loading="lazy" decoding="async">
 
-                        <h3 class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">350</h3>
+                        <div class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">350</div>
                         <p class="lh-15">Happy Customers</p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-6">
                     <div data-anim-child="fade delay-5" class="text-center">
-                        <img src="{{ asset('assets/img/icons/3/4.svg') }}" alt="Years of experience icon">
+                        <img src="{{ asset('assets/img/icons/3/4.svg') }}" alt="" aria-hidden="true" width="60" height="61" loading="lazy" decoding="async">
 
-                        <h3 class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">10</h3>
+                        <div class="text-40 md:text-30 lh-14 fw-700 mt-30 md:mt-15">10</div>
                         <p class="lh-15">Years of Experience</p>
                     </div>
                 </div>
@@ -1508,7 +1521,7 @@
                         <h2 class="text-30">Marrakech Activities</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.activities.index') }}" class="buttonArrow d-flex items-center">
+                        <a href="{{ route('front.activities.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco activities">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1664,7 +1677,7 @@
                         <h2 class="text-30">Morocco Treking Tours</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.trekking.index') }}" class="buttonArrow d-flex items-center">
+                        <a href="{{ route('front.trekking.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Atlas Mountains treks">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -2128,7 +2141,7 @@
                         <h2 class="text-30 md:text-24">Travel Articles</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('blog.index') }}" class="buttonArrow d-flex items-center">
+                        <a href="{{ route('blog.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco travel articles">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>

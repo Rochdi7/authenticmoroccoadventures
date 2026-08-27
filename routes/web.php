@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController as FrontPostController;
@@ -40,6 +41,32 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 // Tours
 Route::prefix('tours')->name('front.tours.')->group(function () {
     Route::get('/', [FrontTourController::class, 'index'])->name('index');
+
+    // Clean, crawlable URLs for the two tour types that the main navigation
+    // links to. These replace /tours?type=multi_day and /tours?type=day_trip so
+    // the nav no longer points crawlers at query-parameter URLs. Both merge the
+    // type into the request and reuse FrontTourController@index unchanged.
+    Route::get('/multi-day', function (Request $request, FrontTourController $controller) {
+        $request->merge(['type' => 'multi_day']);
+        return $controller->index($request);
+    })->name('multiDay');
+
+    Route::get('/day-trips', function (Request $request, FrontTourController $controller) {
+        $request->merge(['type' => 'day_trip']);
+        return $controller->index($request);
+    })->name('dayTrips');
+
+    // Same, one level deeper: /tours/multi-day/from/marrakech
+    Route::get('/multi-day/from/{location_slug}', function (Request $request, FrontTourController $controller, $location_slug) {
+        $request->merge(['type' => 'multi_day', 'location_slug' => $location_slug]);
+        return $controller->index($request);
+    })->name('multiDayFrom');
+
+    Route::get('/day-trips/from/{location_slug}', function (Request $request, FrontTourController $controller, $location_slug) {
+        $request->merge(['type' => 'day_trip', 'location_slug' => $location_slug]);
+        return $controller->index($request);
+    })->name('dayTripsFrom');
+
     Route::get('/{slug}', [FrontTourController::class, 'show'])->name('show');
     Route::post('/{slug}/leave-review', [FrontTourController::class, 'leaveReview'])->name('leaveReview')->middleware('recaptcha:leave_review');
     Route::post('/{slug}/reserve', [TourReservationController::class, 'store'])->name('reserve')->middleware('recaptcha:reserve');

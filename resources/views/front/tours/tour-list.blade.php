@@ -5,6 +5,19 @@
 @section('og_title', 'Morocco Tours and Sahara Desert Trips | Book Online')
 @section('og_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
 
+{{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
+     They are field labels, not document headings, so they are now <span class="h5-label">.
+     This block reproduces the theme's original `.searchFormItem__content > h5` rules
+     verbatim so the rendering is unchanged. --}}
+<style>
+  .searchFormItem__content > .h5-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+  }
+</style>
+
 @section('content')
     {{-- Shift the tours hero image focus downward so the fortress/port at the
          bottom is visible instead of only the sky at the top. Desktop is short &
@@ -70,7 +83,7 @@
                                                     <i class="text-20 icon-pin"></i>
                                                 </div>
                                                 <div class="searchFormItem__content">
-                                                    <h5>Where</h5>
+                                                    <span class="h5-label">Where</span>
                                                     <div class="js-select-control-chosen">
                                                         {{ $locations->firstWhere('id', request('locations')[0] ?? null)?->name ?? 'Search locations' }}
                                                     </div>
@@ -118,7 +131,7 @@
                                                     <i class="icon-teamwork text-20"></i>
                                                 </div>
                                                 <div class="searchFormItem__content">
-                                                    <h5>Group Size</h5>
+                                                    <span class="h5-label">Group Size</span>
                                                     <div class="js-select-control-chosen">
                                                         {{ request('group_size') ?? 'Enter group size range' }}
                                                     </div>

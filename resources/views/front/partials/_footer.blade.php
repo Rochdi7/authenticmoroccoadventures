@@ -1,7 +1,7 @@
 <footer class="footer -type-1 -light bg-accent-2">
     <div class="footer__main">
         <div class="footer__bg">
-            <img src="{{ asset('assets/img/footer/1/bg.svg') }}" alt="" aria-hidden="true">
+            <img src="{{ asset('assets/img/footer/1/bg.svg') }}" alt="" aria-hidden="true" width="1800" height="627" loading="lazy" decoding="async">
         </div>
 
         <div class="container">
@@ -27,7 +27,7 @@
                                 alt="Authentic Morocco Adventures — Tripadvisor Travelers' Choice 2026 award winner"
                                 width="1021" height="225"
                                 title="Authentic Morocco Adventures — Tripadvisor Travelers' Choice 2026"
-                                width="300" loading="lazy"
+                                loading="lazy" decoding="async"
                                 data-caption="Authentic Morocco Adventures — Tripadvisor Travelers' Choice 2026 award"
                                 data-description="Authentic Morocco Adventures was recognized with the Tripadvisor Travelers' Choice 2026 award for its Morocco tours, activities and trekking experiences."
                                 style="width: 300px; max-width: 100%; height: auto; filter: brightness(0) invert(1);">
@@ -76,12 +76,12 @@
                             <div class="footer-trusted-brands__logos d-flex items-center flex-wrap x-gap-20 y-gap-10">
                                 <img src="{{ asset('assets/images/clients/bokun.webp') }}" alt="Bókun" loading="lazy" width="200" height="91" class="footer-brand-logo">
                                 <img src="{{ asset('assets/images/clients/tourhub.png') }}" alt="Tourhub" loading="lazy" width="198" height="40" class="footer-brand-logo">
-                                <img src="{{ asset('assets/images/clients/tourradar.svg') }}" alt="TourRadar" loading="lazy" class="footer-brand-logo">
-                                <img src="{{ asset('assets/images/clients/tripadvisor.svg') }}" alt="Tripadvisor" loading="lazy" class="footer-brand-logo">
+                                <img src="{{ asset('assets/images/clients/tourradar.svg') }}" alt="TourRadar" loading="lazy" decoding="async" width="670" height="111" class="footer-brand-logo">
+                                <img src="{{ asset('assets/images/clients/tripadvisor.svg') }}" alt="Tripadvisor" loading="lazy" decoding="async" width="3354" height="713" class="footer-brand-logo">
                                 <a href="https://fr.trustpilot.com/review/authenticmoroccoadventures.com" target="_blank" rel="noopener" aria-label="Read our reviews on Trustpilot" class="d-flex align-items-center">
-                                    <img src="{{ asset('assets/images/clients/trustpilot-seeklogo.svg') }}" alt="Trustpilot" loading="lazy" class="footer-brand-logo">
+                                    <img src="{{ asset('assets/images/clients/trustpilot-seeklogo.svg') }}" alt="Trustpilot" loading="lazy" decoding="async" width="600" height="147" class="footer-brand-logo">
                                 </a>
-                                <img src="{{ asset('assets/images/clients/viator-seeklogo-2.svg') }}" alt="Viator" loading="lazy" class="footer-brand-logo">
+                                <img src="{{ asset('assets/images/clients/viator-seeklogo-2.svg') }}" alt="Viator" loading="lazy" decoding="async" width="600" height="450" class="footer-brand-logo">
                             </div>
                         </div>
                     </div>
@@ -205,12 +205,12 @@
 
                     <div class="col-auto">
                         <div class="footer__images d-flex items-center x-gap-10">
-                            <img src="{{ asset('assets/img/footer/cards/1.png') }}" alt="Payment card 1">
-                            <img src="{{ asset('assets/img/footer/cards/2.png') }}" alt="Payment card 2">
-                            <img src="{{ asset('assets/img/footer/cards/3.png') }}" alt="Payment card 3">
-                            <img src="{{ asset('assets/img/footer/cards/4.png') }}" alt="Payment card 4">
-                            <img src="{{ asset('assets/img/footer/cards/5.png') }}" alt="Payment card 5">
-                            <img src="{{ asset('assets/img/footer/cards/6.png') }}" alt="Payment card 6">
+                            <img src="{{ asset('assets/img/footer/cards/1.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/2.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/3.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/4.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/5.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/6.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>
