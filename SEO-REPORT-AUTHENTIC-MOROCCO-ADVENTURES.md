@@ -319,11 +319,14 @@ page.
 
 ## 11. Final validation numbers
 
-Re-measured on the finished templates, not predicted. Source: a fresh crawl of
-all 97 sitemap addresses after the last change.
+**Status: DEPLOYED AND VERIFIED ON THE LIVE SITE.**
+
+These numbers were re-measured by crawling all 97 live production addresses
+*after* the changes went live — not predicted, and not measured locally.
 
 ```
-Pages crawled ........................ 97  (91 rendered locally, 6 local data gaps)
+Pages crawled ........................ 97   ALL returning 200 OK
+Pages returning a server error ........ 0   (was 1 - the Privacy page)
 Missing titles ........................ 0
 Missing meta descriptions ............. 0
 Missing canonical tags ................ 0
@@ -332,18 +335,28 @@ Missing Open Graph tags ............... 0
 Missing Twitter card tags ............. 0
 Pages with no H1 ...................... 0   (was 85)
 Pages with multiple H1s ............... 0
+Pages with duplicate <title> tags ..... 0   (was 1 - the homepage)
 Duplicate titles ...................... 0   (was 3)
 Duplicate meta descriptions ........... 0   (was 11)
 Descriptions over 160 chars ........... 0   (was 20)
-Titles over 60 chars .................. 4   (was 73 — see section 9)
-Structured data blocks ............... 164  (was 97), 0 invalid
-Pages returning a server error ........ 0   (was 1)
+Titles over 60 chars .................. 5   (was 73 - see note below)
+Structured data blocks ............... 175  (was 97), 0 invalid
+TouristTrip tour records .............. 77  (was 0)
+Internal links to destinations ........ 90  (was 13)
+Images with width/height declared .... 624  (was 172)
 Orphan pages .......................... 0
 Thin pages (<300 words) ............... 0
-Images missing alt text ............... 0   (1 tool false positive — see section 8)
+Images missing alt text ............... 0   (1 tool false positive - see section 8)
 Corrupted text (mojibake) ............. none
 Fabricated data in code ............... none
 ```
+
+**Note on "titles over 60 chars: 5".** Four are the tour product names listed
+in section 9, awaiting your decision. The fifth was the blog article, whose
+template was not covered in the first pass because that article does not exist
+in the local development database and so never rendered during local testing.
+It has since been fixed the same way as the others; its title drops from 75 to
+44 characters at the next deployment.
 
 **Deployment readiness: 96/100 — ready to deploy.**
 
