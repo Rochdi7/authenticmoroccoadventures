@@ -9,6 +9,19 @@
     RewriteCond %{HTTP:Authorization} .
     RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
 
+    # --- Canonical host + scheme -------------------------------------------
+    # Force HTTPS. Honours the X-Forwarded-Proto header set by a proxy/CDN so
+    # this does not loop when TLS is terminated upstream.
+    RewriteCond %{HTTPS} !=on
+    RewriteCond %{HTTP:X-Forwarded-Proto} !=https
+    RewriteRule ^ https://www.authenticmoroccoadventures.com%{REQUEST_URI} [L,R=301]
+
+    # Force the www host (non-www -> www), any other host -> canonical host.
+    RewriteCond %{HTTP_HOST} !^www\.authenticmoroccoadventures\.com$ [NC]
+    RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)(:[0-9]+)?$ [NC]
+    RewriteRule ^ https://www.authenticmoroccoadventures.com%{REQUEST_URI} [L,R=301]
+    # -----------------------------------------------------------------------
+
     # Redirect Trailing Slashes If Not A Folder...
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_URI} (.+)/$
@@ -18,4 +31,27 @@
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
+</IfModule>
+
+# --- Response headers ------------------------------------------------------
+<IfModule mod_headers.c>
+    # Do not advertise the PHP version / framework.
+    Header always unset X-Powered-By
+    Header always unset X-AspNet-Version
+    Header unset Server
+
+    # Security headers.
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    Header always set Permissions-Policy "geolocation=(), microphone=(), camera=(), interest-cohort=()"
+
+    # HSTS - only sent over HTTPS. Two years, subdomains included.
+    <If "%{HTTPS} == 'on' || %{HTTP:X-Forwarded-Proto} == 'https'">
+        Header always set Strict-Transport-Security "max-age=63072000; includeSubDomains; preload"
+    </If>
+</IfModule>
+
+<IfModule mod_php.c>
+    php_flag expose_php Off
 </IfModule>
