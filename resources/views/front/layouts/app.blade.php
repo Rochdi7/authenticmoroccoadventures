@@ -114,10 +114,11 @@
           }
         }
         </script>
+    @else
+        {{-- Title fallback for non-homepage. Inside @else so the homepage does not
+             emit a second <title> tag (it has its own, above). --}}
+        <title>@yield('title', 'Authentic Morocco Adventures')</title>
     @endif
-
-    {{-- Title fallback for non-homepage --}}
-    <title>@yield('title', 'Authentic Morocco Adventures')</title>
 
     {{-- Per-page pushed styles (e.g. homepage hero animation, Bootstrap Icons) --}}
     @stack('styles')
