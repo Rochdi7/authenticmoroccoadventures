@@ -7,22 +7,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9M525H2VB2"></script>
+    {{-- Analytics: the gtag() queue is defined here so any early call still
+         records, but the network requests are started after load (see the
+         bottom of <body>). This keeps third-party JS off the critical path
+         without losing a single event. --}}
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'G-9M525H2VB2');
     </script>
-
-    <!-- Ahrefs Analytics -->
-    <script src="https://analytics.ahrefs.com/analytics.js" data-key="TCYTyxlxLWFvUbmQZwxlhg" async></script>
 
     <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <!-- Google fonts (with font-display swap) -->
     <link
@@ -30,8 +29,17 @@
         rel="stylesheet">
 
     <!-- Bootstrap Icons CDN -->
-    <link rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    {{-- Bootstrap Icons: decorative only (12 uses site-wide), so it is loaded
+         non-render-blocking. The preload+onload swap lets the browser fetch it at
+         high priority without holding up first paint; <noscript> keeps it working
+         with JS disabled. --}}
+    <link rel="preload" as="style"
+          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+          onload="this.onload=null;this.rel='stylesheet'">
+    <noscript>
+        <link rel="stylesheet"
+              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    </noscript>
 
     <!-- Critical layout CSS: loaded render-blocking, on purpose, so the page never paints unstyled -->
     <link rel="stylesheet" href="{{ asset('assets/css/vendors.min.css') }}">
@@ -241,7 +249,7 @@
 <a href="https://wa.me/212666107312?text=Hello%20Authentic%20Morocco%20Adventures%2C%20I%E2%80%99d%20like%20more%20info!"
    class="whatsapp-float" target="_blank" aria-label="Chat on WhatsApp">
     <span class="whatsapp-float__bubble" aria-hidden="true">Need help? Chat with us 👋</span>
-    <img src="{{ asset('assets/images/icon/whatsapp.png') }}" alt="WhatsApp Chat">
+    <img src="{{ asset('assets/images/icon/whatsapp.png') }}" alt="" aria-hidden="true" width="64" height="64" loading="lazy" decoding="async">
 </a>
 
 @include('front.partials._wishlist')
@@ -260,8 +268,29 @@
 
 @stack('scripts')
 
+{{-- Third-party analytics, loaded once the page has painted so they never
+     compete with the LCP image or the theme JS for bandwidth. --}}
 <script>
-    console.log('typeof jQuery:', typeof jQuery);
+    (function () {
+        function loadAnalytics() {
+            var ga = document.createElement('script');
+            ga.src = 'https://www.googletagmanager.com/gtag/js?id=G-9M525H2VB2';
+            ga.async = true;
+            document.head.appendChild(ga);
+
+            var ah = document.createElement('script');
+            ah.src = 'https://analytics.ahrefs.com/analytics.js';
+            ah.setAttribute('data-key', 'TCYTyxlxLWFvUbmQZwxlhg');
+            ah.async = true;
+            document.head.appendChild(ah);
+        }
+
+        if (document.readyState === 'complete') {
+            loadAnalytics();
+        } else {
+            window.addEventListener('load', loadAnalytics);
+        }
+    })();
 </script>
 </body>
 </html>

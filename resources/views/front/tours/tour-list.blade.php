@@ -47,7 +47,8 @@
             <figure class="m-0">
                 <img src="{{ asset('assets/images/hero/high-atlas-snow-peaks-trekking-morocco.webp') }}"
                     alt="Seagulls soaring over the historic fortress and fishing port of Essaouira under a bright blue Moroccan sky"
-                    title="Seagulls circle above the ramparts and fishing harbour of Essaouira on Morocco's Atlantic coast.">
+                    title="Seagulls circle above the ramparts and fishing harbour of Essaouira on Morocco's Atlantic coast."
+                    width="1600" height="1066" fetchpriority="high" decoding="async">
                 <figcaption class="visually-hidden">
                     A flock of seagulls wheels above the weathered ramparts and busy fishing port of Essaouira
                     on Morocco's Atlantic coast, set against a clear blue sky — one of the coastal escapes on
@@ -55,7 +56,7 @@
                 </figcaption>
             </figure>
 
-            <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="decorative shape">
+            <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
         </div>
 
         <div class="container">

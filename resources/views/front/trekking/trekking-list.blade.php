@@ -33,14 +33,15 @@
             <figure class="m-0">
                 <img src="{{ asset('assets/images/hero/atlas-mountains-snow-morocco-winter-landscape.webp') }}"
                     alt="Snow-capped High Atlas mountain peaks rising above red-earth foothills on a Morocco trekking route"
-                    title="Snow-capped summits of Morocco's High Atlas Mountains tower over dramatic red foothills.">
+                    title="Snow-capped summits of Morocco's High Atlas Mountains tower over dramatic red foothills."
+                    width="6000" height="4000" fetchpriority="high" decoding="async">
                 <figcaption class="visually-hidden">
                     Snow-dusted High Atlas summits rise above rugged red foothills under a dramatic cloudy sky,
                     the backdrop for Authentic Morocco Adventures' guided mountain treks.
                 </figcaption>
             </figure>
 
-            <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="decorative shape">
+            <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
         </div>
 
         <div class="container">

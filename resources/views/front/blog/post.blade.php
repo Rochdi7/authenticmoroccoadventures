@@ -44,7 +44,7 @@
                      travel stories and guides.
                  </figcaption>
              </figure>
-             <img src="{{ asset('assets/images/hero/1/shape.svg') }}" alt="Decorative shape">
+             <img src="{{ asset('assets/images/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
          </div>
 
          <div class="container">

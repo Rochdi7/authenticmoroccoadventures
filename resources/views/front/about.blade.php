@@ -26,7 +26,8 @@
             <figure style="margin: 0;">
                 <img src="{{ asset('assets/images/hero/marrakech-souk-spice-merchant-morocco.webp') }}"
                     alt="Moroccan spice merchant serving a customer beside colorful mounds of spices in a Marrakech souk"
-                    title="A Moroccan spice merchant scoops fragrant spices in a traditional Marrakech souk." loading="lazy"
+                    title="A Moroccan spice merchant scoops fragrant spices in a traditional Marrakech souk."
+                    width="1600" height="1066" fetchpriority="high" decoding="async"
                     style="object-fit: cover; width: 100%; height: 100%; display: block;">
                 <figcaption class="visually-hidden">
                     A friendly spice merchant works his stall of vivid red, ochre and golden spices beneath shelves of
@@ -34,7 +35,7 @@
                     Authentic Morocco Adventures.
                 </figcaption>
             </figure>
-            <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="Decorative shape">
+            <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
         </div>
 
         <div class="container">
@@ -90,7 +91,7 @@
                         of Morocco.
                     </p>
 
-                    <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}"
+                    <a href="{{ route('front.tours.multiDay') }}"
                         class="button -sm -dark-1 bg-accent-1 text-white mt-30">
                         Explore Our Tours
                     </a>
@@ -108,7 +109,7 @@
                     <img src="{{ asset('assets/images/about/morocco-medina-market-arches.webp') }}"
                         alt="Woman exploring traditional Moroccan medina street lined with colorful carpets and historic arches."
                         title="Exploring Morocco’s vibrant medina streets with artisan carpets and intricate architecture."
-                        class="rounded-12" loading="lazy">
+                        class="rounded-12" loading="lazy" width="1200" height="800" decoding="async">
                     <figcaption class="visually-hidden">
                         A woman stands beneath ornate arches in a narrow Moroccan medina street, surrounded by colorful rugs
                         and ancient architecture, showcasing the rich culture and craftsmanship of Morocco.
@@ -153,7 +154,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="featureIcon -type-1 pr-40 md:pr-0">
                         <div class="featureIcon__icon">
-                            <img src="{{ asset('assets/img/icons/1/ticket.svg') }}" alt="Flexible Booking Icon">
+                            <img src="{{ asset('assets/img/icons/1/ticket.svg') }}" alt="Flexible Booking Icon" width="60" height="60" decoding="async">
                         </div>
 
                         <h3 class="featureIcon__title text-18 fw-500 mt-30">Ultimate Flexibility</h3>
@@ -168,7 +169,7 @@
                     <div class="featureIcon -type-1 pr-40 md:pr-0">
                         <div class="featureIcon__icon">
                             <img src="{{ asset('assets/img/icons/1/hot-air-balloon.svg') }}"
-                                alt="Memorable Experiences Icon">
+                                alt="Memorable Experiences Icon" width="60" height="60" decoding="async">
                         </div>
 
                         <h3 class="featureIcon__title text-18 fw-500 mt-30">Memorable Experiences</h3>
@@ -182,7 +183,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="featureIcon -type-1 pr-40 md:pr-0">
                         <div class="featureIcon__icon">
-                            <img src="{{ asset('assets/img/icons/1/diamond.svg') }}" alt="Quality Icon">
+                            <img src="{{ asset('assets/img/icons/1/diamond.svg') }}" alt="Quality Icon" width="50" height="50" decoding="async">
                         </div>
 
                         <h3 class="featureIcon__title text-18 fw-500 mt-30">Quality at Our Core</h3>
@@ -196,7 +197,7 @@
                 <div class="col-lg-3 col-sm-6">
                     <div class="featureIcon -type-1 pr-40 md:pr-0">
                         <div class="featureIcon__icon">
-                            <img src="{{ asset('assets/img/icons/1/medal.svg') }}" alt="Support Icon">
+                            <img src="{{ asset('assets/img/icons/1/medal.svg') }}" alt="Support Icon" width="60" height="60" decoding="async">
                         </div>
 
                         <h3 class="featureIcon__title text-18 fw-500 mt-30">24/7 Support</h3>
@@ -239,7 +240,7 @@
                 <div class="sectionBg">
                     <img src="{{ asset('assets/img/about/1/1.png') }}"
                         alt="Traditional Moroccan street scene with colorful stairs and artisan market in Chefchaouen"
-                        class="img-ratio rounded-12 md:rounded-0" loading="lazy">
+                        class="img-ratio rounded-12 md:rounded-0" loading="lazy" width="1290" height="630" decoding="async">
                 </div>
 
                 <div class="row y-gap-30 justify-center items-center">
@@ -253,7 +254,7 @@
                             Traveling under your own power and at your own pace helps you connect more meaningfully
                             with your destination—and have more fun!
                         </p>
-                        <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}"
+                        <a href="{{ route('front.tours.multiDay') }}"
                             class="button -sm -dark-1 bg-accent-1 text-white mt-60 md:mt-30 d-inline-block"
                             style="width: 240px; text-align: center;">
                             Explore Our Tours
@@ -265,19 +266,19 @@
                         <div class="featuresGrid">
 
                             <div class="featuresGrid__item px-40 py-40 text-center bg-white rounded-12">
-                                <img src="{{ asset('assets/img/icons/2/1.svg') }}" alt="Map icon">
+                                <img src="{{ asset('assets/img/icons/2/1.svg') }}" alt="Map icon" width="60" height="60" decoding="async">
                                 <div class="text-40 fw-700 color-accent-2 mt-20 lh-14">12</div>
                                 <div>Total Destinations</div>
                             </div>
 
                             <div class="featuresGrid__item px-40 py-40 text-center bg-white rounded-12">
-                                <img src="{{ asset('assets/img/icons/2/2.svg') }}" alt="Hot air balloon icon">
+                                <img src="{{ asset('assets/img/icons/2/2.svg') }}" alt="Hot air balloon icon" width="60" height="60" decoding="async">
                                 <div class="text-40 fw-700 color-accent-2 mt-20 lh-14">45</div>
                                 <div>Amazing Tours</div>
                             </div>
 
                             <div class="featuresGrid__item px-40 py-40 text-center bg-white rounded-12">
-                                <img src="{{ asset('assets/img/icons/2/3.svg') }}" alt="Smiling face icon">
+                                <img src="{{ asset('assets/img/icons/2/3.svg') }}" alt="Smiling face icon" width="60" height="60" decoding="async">
                                 <div class="text-40 fw-700 color-accent-2 mt-20 lh-14">350</div>
                                 <div>Happy Customers</div>
                             </div>
@@ -293,7 +294,7 @@
 
     <section data-anim-wrap class="relative layout-pt-xl layout-pb-xl">
         <div data-anim-child="slide-up delay-1" class="sectionBg md:d-none">
-            <img src="{{ asset('assets/img/testimonials/1/1.png') }}" alt="Authentic Morocco Adventures background">
+            <img src="{{ asset('assets/img/testimonials/1/1.png') }}" alt="Authentic Morocco Adventures background" width="1920" height="871" decoding="async">
         </div>
 
         <div data-anim-child="slide-up delay-3" class="container">
@@ -314,7 +315,7 @@
                                 <div class="testimonials -type-1 pt-10 text-center">
                                     <div class="testimonials__image size-100 rounded-full">
                                         <img src="{{ asset('assets/images/reviews/testimonial-matteo-italy_isnet-general-use.webp') }}"
-                                            alt="Matteo Rossi, traveler from Italy enjoying Morocco tour">
+                                            alt="Matteo Rossi, traveler from Italy enjoying Morocco tour" width="70" height="71" decoding="async">
                                         <div class="testimonials__icon">
                                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -345,7 +346,7 @@
                                 <div class="testimonials -type-1 pt-10 text-center">
                                     <div class="testimonials__image size-100 rounded-full">
                                         <img src="{{ asset('assets/images/reviews/testimonial-carlos-brazil_bria.webp') }}"
-                                            alt="Carlos Almeida, traveler from Brazil enjoying Moroccan culture">
+                                            alt="Carlos Almeida, traveler from Brazil enjoying Moroccan culture" width="70" height="71" decoding="async">
                                         <div class="testimonials__icon">
                                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -375,7 +376,7 @@
                                 <div class="testimonials -type-1 pt-10 text-center">
                                     <div class="testimonials__image size-100 rounded-full">
                                         <img src="{{ asset('assets/images/reviews/testimonial-james-usa_bria.webp') }}"
-                                            alt="James Peterson, traveler from USA sharing Morocco experience">
+                                            alt="James Peterson, traveler from USA sharing Morocco experience" width="70" height="71" decoding="async">
                                         <div class="testimonials__icon">
                                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -405,7 +406,7 @@
                                 <div class="testimonials -type-1 pt-10 text-center">
                                     <div class="testimonials__image size-100 rounded-full">
                                         <img src="{{ asset('assets/images/reviews/testimonial-aysha-morocco_bria.webp') }}"
-                                            alt="Aysha El Fassi, Moroccan traveler sharing local experiences">
+                                            alt="Aysha El Fassi, Moroccan traveler sharing local experiences" width="70" height="71" decoding="async">
                                         <div class="testimonials__icon">
                                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -435,7 +436,7 @@
                                 <div class="testimonials -type-1 pt-10 text-center">
                                     <div class="testimonials__image size-100 rounded-full">
                                         <img src="{{ asset('assets/images/reviews/testimonial-anastasia-russia_bria.webp') }}"
-                                            alt="Anastasia Ivanova, traveler from Russia sharing Morocco experience">
+                                            alt="Anastasia Ivanova, traveler from Russia sharing Morocco experience" width="70" height="71" decoding="async">
                                         <div class="testimonials__icon">
                                             <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                 xmlns="http://www.w3.org/2000/svg">
@@ -476,7 +477,7 @@
     <section data-anim="slide-up" class="cta -type-1">
         <div class="cta__bg">
             <img src="{{ asset('assets/images/cta/newsletter-morocco.webp') }}"
-                alt="Stunning Moroccan desert background for Authentic Morocco Adventures newsletter">
+                alt="Stunning Moroccan desert background for Authentic Morocco Adventures newsletter" width="1530" height="501" decoding="async">
         </div>
 
         <div class="container py-20">
@@ -572,7 +573,7 @@
                 <!-- Bokun -->
                 <div class="col-auto">
                     <img src="{{ asset('assets/images/clients/bokun.webp') }}"
-                        alt="Bokun Logo - leading travel booking platform" class="client-logo">
+                        alt="Bokun Logo - leading travel booking platform" class="client-logo" width="200" height="91" decoding="async">
                     <div class="visually-hidden">
                         <strong>Bokun</strong> is a booking system for tours and activities used by travel operators
                         worldwide.
@@ -582,7 +583,7 @@
                 <!-- Tourhub -->
                 <div class="col-auto">
                     <img src="{{ asset('assets/images/clients/tourhub.png') }}"
-                        alt="Tourhub Logo - group tour marketplace" class="client-logo">
+                        alt="Tourhub Logo - group tour marketplace" class="client-logo" width="198" height="40" decoding="async">
                     <div class="visually-hidden">
                         <strong>Tourhub</strong> connects travelers with group tour operators globally for unique
                         experiences.
@@ -592,7 +593,7 @@
                 <!-- TourRadar -->
                 <div class="col-auto">
                     <img src="{{ asset('assets/images/clients/tourradar.svg') }}"
-                        alt="TourRadar Logo - multi-day tour booking platform" class="client-logo">
+                        alt="TourRadar Logo - multi-day tour booking platform" class="client-logo" width="670" height="111" decoding="async">
                     <div class="visually-hidden">
                         <strong>TourRadar</strong> is a platform for booking multi-day tours worldwide.
                     </div>
@@ -601,7 +602,7 @@
                 <!-- TripAdvisor -->
                 <div class="col-auto">
                     <img src="{{ asset('assets/images/clients/tripadvisor.svg') }}"
-                        alt="Tripadvisor Logo - travel reviews and bookings" class="client-logo">
+                        alt="Tripadvisor Logo - travel reviews and bookings" class="client-logo" width="3354" height="713" decoding="async">
                     <div class="visually-hidden">
                         <strong>Tripadvisor</strong> is a global platform for travel reviews, guides, and bookings.
                     </div>
@@ -612,7 +613,7 @@
                     <a href="https://fr.trustpilot.com/review/authenticmoroccoadventures.com" target="_blank"
                         rel="noopener" aria-label="Read our reviews on Trustpilot">
                         <img src="{{ asset('assets/images/clients/trustpilot-seeklogo.svg') }}"
-                            alt="Trustpilot Logo - trusted review platform" class="client-logo">
+                            alt="Trustpilot Logo - trusted review platform" class="client-logo" width="600" height="147" decoding="async">
                     </a>
                     <div class="visually-hidden">
                         <strong>Trustpilot</strong> is an online review platform trusted worldwide.
@@ -622,7 +623,7 @@
                 <!-- Viator -->
                 <div class="col-auto">
                     <img src="{{ asset('assets/images/clients/viator-seeklogo-2.svg') }}"
-                        alt="Viator Logo - tours and activities booking platform" class="client-logo">
+                        alt="Viator Logo - tours and activities booking platform" class="client-logo" width="600" height="450" decoding="async">
                     <div class="visually-hidden">
                         <strong>Viator</strong> specializes in tours, activities, and experiences for travelers worldwide.
                     </div>

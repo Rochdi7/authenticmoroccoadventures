@@ -212,7 +212,7 @@
                                      @empty
                                          <div class="swiper-slide">
                                              <img src="{{ asset('assets/images/default-image.png') }}" alt="No Image"
-                                                 class="img-cover rounded-12">
+                                                 class="img-cover rounded-12" width="616" height="451" decoding="async">
                                          </div>
                                      @endforelse
 
@@ -854,7 +854,7 @@
                                          <div class="d-flex items-center">
                                              <div class="size-40 rounded-full">
                                                  <img src="{{ asset('assets/images/icon/avatar.webp') }}" alt="avatar"
-                                                     class="img-cover">
+                                                     class="img-cover" width="1024" height="1024" decoding="async">
                                              </div>
                                              <div class="text-16 fw-500 ml-20">{{ $review->name }}</div>
                                          </div>

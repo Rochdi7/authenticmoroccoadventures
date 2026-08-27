@@ -9,10 +9,10 @@
         <div class="header__left">
             <div class="header__logo">
                 <a href="{{ route('home') }}" class="header__logo">
-                    <img id="header-logo" src="/assets/images/logo/ama_logo_dark.png"
-                        data-default="/assets/images/logo/ama_logo_dark.png"
-                        data-white="/assets/images/logo/ama_logo_white.png" alt="Authentic Morocco Adventures Logo"
-                        width="1115" height="224">
+                    <img id="header-logo" src="/assets/images/logo/ama_logo_dark-360w.webp"
+                        data-default="/assets/images/logo/ama_logo_dark-360w.webp"
+                        data-white="/assets/images/logo/ama_logo_white-360w.webp" alt="Authentic Morocco Adventures Logo"
+                        width="360" height="72" decoding="async">
                 </a>
 
                 <div class="xl:d-none ml-30">

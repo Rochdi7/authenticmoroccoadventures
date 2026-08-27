@@ -13,8 +13,8 @@
 
 <section data-anim="fade" class="pageHeader -type-2">
   <div class="pageHeader__bg">
-    <img src="{{ asset('assets/img/pageHeader/2.jpg') }}" alt="Beautiful Moroccan scenery - Authentic Morocco Adventures">
-    <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="Decorative shape - Authentic Morocco Adventures">
+    <img src="{{ asset('assets/img/pageHeader/2.jpg') }}" alt="Beautiful Moroccan scenery - Authentic Morocco Adventures" width="1800" height="350" decoding="async">
+    <img src="{{ asset('assets/img/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
   </div>
 
   <div class="container">
@@ -50,7 +50,7 @@
 
       <div data-anim-child="slide-up delay-1" class="col-lg-4 col-md-6">
         <div class="px-50 py-45 border-1 rounded-12">
-          <img src="{{ asset('assets/img/icons/6/1.svg') }}" alt="Booking your activity" class="mb-20">
+          <img src="{{ asset('assets/img/icons/6/1.svg') }}" alt="Booking your activity" class="mb-20" width="60" height="60" decoding="async">
           <h3 class="text-18 fw-500">Booking Your Activity</h3>
           <div class="mt-10">
             Book your Moroccan adventures directly through our website, or contact us for custom itineraries tailored to your interests.
@@ -60,7 +60,7 @@
 
       <div data-anim-child="slide-up delay-2" class="col-lg-4 col-md-6">
         <div class="px-50 py-45 border-1 rounded-12">
-          <img src="{{ asset('assets/img/icons/6/2.svg') }}" alt="Payment and receipts" class="mb-20">
+          <img src="{{ asset('assets/img/icons/6/2.svg') }}" alt="Payment and receipts" class="mb-20" width="60" height="60" decoding="async">
           <h3 class="text-18 fw-500">Payment & Receipts</h3>
           <div class="mt-10">
             We accept payments via secure online platforms, bank transfer, or cash. Receipts are provided for all bookings.
@@ -70,7 +70,7 @@
 
       <div data-anim-child="slide-up delay-3" class="col-lg-4 col-md-6">
         <div class="px-50 py-45 border-1 rounded-12">
-          <img src="{{ asset('assets/img/icons/6/3.svg') }}" alt="Booking changes and refunds" class="mb-20">
+          <img src="{{ asset('assets/img/icons/6/3.svg') }}" alt="Booking changes and refunds" class="mb-20" width="50" height="50" decoding="async">
           <h3 class="text-18 fw-500">Booking Changes & Refunds</h3>
           <div class="mt-10">
             Need to adjust your plans? Contact us at least 15 days before your tour for changes or cancellations with minimal fees.
@@ -80,7 +80,7 @@
 
       <div data-anim-child="slide-up delay-4" class="col-lg-4 col-md-6">
         <div class="px-50 py-45 border-1 rounded-12">
-          <img src="{{ asset('assets/img/icons/6/4.svg') }}" alt="Promo codes and credits" class="mb-20">
+          <img src="{{ asset('assets/img/icons/6/4.svg') }}" alt="Promo codes and credits" class="mb-20" width="60" height="60" decoding="async">
           <h3 class="text-18 fw-500">Promo Codes & Credits</h3>
           <div class="mt-10">
             Watch for exclusive offers on our website and social media. Apply promo codes at checkout for special discounts.
@@ -90,7 +90,7 @@
 
       <div data-anim-child="slide-up delay-5" class="col-lg-4 col-md-6">
         <div class="px-50 py-45 border-1 rounded-12">
-          <img src="{{ asset('assets/img/icons/6/5.svg') }}" alt="On the participation day" class="mb-20">
+          <img src="{{ asset('assets/img/icons/6/5.svg') }}" alt="On the participation day" class="mb-20" width="60" height="60" decoding="async">
           <h3 class="text-18 fw-500">On the Participation Day</h3>
           <div class="mt-10">
             Please arrive on time and bring any required documents or tickets. Our guides will ensure you have an unforgettable experience.
@@ -100,7 +100,7 @@
 
       <div data-anim-child="slide-up delay-6" class="col-lg-4 col-md-6">
         <div class="px-50 py-45 border-1 rounded-12">
-          <img src="{{ asset('assets/img/icons/6/6.svg') }}" alt="Value packs" class="mb-20">
+          <img src="{{ asset('assets/img/icons/6/6.svg') }}" alt="Value packs" class="mb-20" width="60" height="60" decoding="async">
           <h3 class="text-18 fw-500">Value Packs</h3>
           <div class="mt-10">
             Save more with multi-day tour packages that combine Morocco’s top destinations and activities for a richer experience.

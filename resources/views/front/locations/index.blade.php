@@ -12,8 +12,9 @@
         <div class="pageHeader__bg">
             <img src="{{ asset('assets/images/hero/tangier-morocco-coastline-night-lights.webp') }}"
                  alt="Panoramic night view of Tangier’s coastline and city lights in Morocco."
-                 title="Tangier, Morocco at Night">
-            <img src="{{ asset('assets/images/hero/1/shape.svg') }}" alt="Decorative shape">
+                 title="Tangier, Morocco at Night"
+                 width="1150" height="766" fetchpriority="high" decoding="async">
+            <img src="{{ asset('assets/images/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
         </div>
 
         <div class="container">
@@ -120,7 +121,8 @@
                     <figure class="rounded-12 overflow-hidden">
                         <img src="{{ asset('assets/images/hero/medina-marrakech-square-sunset-morocco.webp') }}"
                              alt="Koutoubia Mosque rising over Jemaa el-Fnaa square at sunset in Marrakech, Morocco."
-                             title="Marrakech Sunset View" class="w-100 h-auto">
+                             title="Marrakech Sunset View"
+                             width="1024" height="683" fetchpriority="high" decoding="async" class="w-100 h-auto">
                         <figcaption class="visually-hidden">
                             Vibrant evening colors over Marrakech’s famous square and Koutoubia Mosque.
                             This stunning sunset photograph captures the Koutoubia Mosque towering over the bustling Jemaa

@@ -45,7 +45,7 @@
             <img src="{{ asset('assets/images/hero/medina-marrakech-square-sunset-morocco.webp') }}"
                 alt="Koutoubia Mosque minaret silhouetted against a vivid sunset over Jemaa el-Fnaa square in Marrakech, Morocco"
                 loading="lazy" width="1024" height="683">
-            <img src="{{ asset('assets/images/hero/1/shape.svg') }}" alt="Decorative shape">
+            <img src="{{ asset('assets/images/hero/1/shape.svg') }}" alt="" aria-hidden="true" width="1800" height="40" loading="lazy" decoding="async">
         </div>
 
         <div class="container">
@@ -184,7 +184,7 @@
                                 <img src="{{ asset('assets/images/blog/morocco-tour-guide-atlas-mountains-scenic-view.webp') }}"
                                     alt="Authentic Morocco Adventures guide sitting and smiling on a mountain viewpoint overlooking winding roads and scenic Atlas Mountains landscape."
                                     title="Authentic Morocco Adventures Guide Enjoying Scenic Atlas Mountains View"
-                                    class="rounded-12" style="width:80px; height:80px; object-fit:cover;">
+                                    class="rounded-12" style="width:80px; height:80px; object-fit:cover;" width="928" height="1032" decoding="async">
 
                                 <figcaption class="visually-hidden">
                                     Authentic Morocco Adventures guide taking a break at a stunning viewpoint in Morocco’s Atlas
@@ -288,7 +288,7 @@
                                         <div class="d-flex items-center">
                                             <div class="size-40 rounded-full">
                                                 <img src="{{ asset('assets/images/icon/avatar.webp') }}" alt="avatar"
-                                                    class="img-cover">
+                                                    class="img-cover" width="1024" height="1024" decoding="async">
                                             </div>
                                             <div class="text-16 fw-500 ml-20">{{ $review->name }}</div>
                                         </div>

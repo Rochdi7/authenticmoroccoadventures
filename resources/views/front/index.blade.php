@@ -13,6 +13,23 @@
             transform: none !important;
         }
 
+        /* CLS: the typewriter JS empties these nodes and retypes them, which
+           collapses their height and shifts everything below. Reserving the
+           rendered height keeps the layout stable while the text types in.
+           min-height (not fixed height) so longer text can still grow. */
+        .heroIntro__title {
+            min-height: 2.4em;
+        }
+
+        .heroIntro__text {
+            min-height: 3.2em;
+        }
+
+        @media (max-width: 767px) {
+            .heroIntro__title { min-height: 3.2em; }
+            .heroIntro__text  { min-height: 5.4em; }
+        }
+
         /* Blinking caret that trails the typed text. It's a span the JS keeps
                at the end of whichever line is currently typing. */
         .heroCaret {
@@ -432,7 +449,7 @@
                 font-size: 16px;
             }
 
-            .heroSearchOverlap .searchFormItem__content h5 {
+            .heroSearchOverlap .searchFormItem__content .h5-label {
                 font-size: 15px;
                 margin-bottom: 2px;
             }
@@ -789,7 +806,7 @@
                         of Morocco.
                     </p>
 
-                    <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}"
+                    <a href="{{ route('front.tours.multiDay') }}"
                         class="button -sm -dark-1 bg-accent-1 text-white mt-30">
                         Explore Our Tours
                     </a>
@@ -1081,7 +1098,7 @@
                         </p>
 
                         <button>
-                            <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}"
+                            <a href="{{ route('front.tours.multiDay') }}"
                                 class="button -md -accent-1 bg-dark-1 text-white mt-10"
                                 aria-label="Explore tours in Marrakech with Authentic Morocco Adventures">
                                 Explore Tours
@@ -1140,7 +1157,8 @@
                             <figure>
                                 <img src="{{ asset('assets/images/home/marrakech-souk-moroccan-brass-lanterns-market.webp') }}"
                                     alt="Golden Moroccan brass lanterns glowing in a traditional Marrakech souk, showcasing Moroccan craftsmanship and vibrant culture."
-                                    title="Marrakech Souk Moroccan Brass Lanterns Market" loading="lazy"
+                                    title="Marrakech Souk Moroccan Brass Lanterns Market"
+                                    width="800" height="450" loading="lazy" decoding="async"
                                     style="width: 100%; height: 100%; object-fit: cover; display: block;">
                                 <figcaption style="display: none;">
                                     Traditional brass lanterns fill the vibrant souks of Marrakech with shimmering light and
@@ -1185,7 +1203,7 @@
                         <h2 class="text-30 md:text-24">Best Morocco Multi-Day Tours</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.tours.index', ['type' => 'multi_day']) }}" class="buttonArrow d-flex items-center" aria-label="See all multi-day Morocco tours">
+                        <a href="{{ route('front.tours.multiDay') }}" class="buttonArrow d-flex items-center" aria-label="See all multi-day Morocco tours">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1319,7 +1337,7 @@
                         <h2 class="text-30">Best Morocco Day Trips</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.tours.index', ['type' => 'day_trip']) }}" aria-label="See all Morocco day trips"
+                        <a href="{{ route('front.tours.dayTrips') }}" aria-label="See all Morocco day trips"
                             class="buttonArrow d-flex items-center">
                             <span>See all</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
@@ -1927,7 +1945,7 @@
         <section data-anim-wrap class="relative layout-pt-xl layout-pb-xl">
             <div data-anim-child="slide-up delay-1" class="sectionBg md:d-none">
                 <img src="{{ asset('assets/img/testimonials/1/1.png') }}"
-                    alt="Background graphic featuring Authentic Morocco Adventures theme" loading="lazy"
+                    alt="" aria-hidden="true" width="1920" height="871" loading="lazy" decoding="async"
                     role="presentation">
             </div>
 
@@ -1952,7 +1970,7 @@
                                         <div class="testimonials__image size-100 rounded-full">
                                             <img src="{{ asset('assets/images/reviews/testimonial-matteo-italy_isnet-general-use.webp') }}"
                                                 alt="Matteo Rossi, traveler from Italy enjoying Morocco desert tour with camel rides and sunset views"
-                                                loading="eager">
+                                                width="70" height="71" loading="eager" decoding="async">
                                             <div class="testimonials__icon" aria-hidden="true">
                                                 <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -1987,7 +2005,7 @@
                                         <div class="testimonials__image size-100 rounded-full">
                                             <img src="{{ asset('assets/images/reviews/testimonial-carlos-brazil_bria.webp') }}"
                                                 alt="Carlos Almeida, traveler from Brazil discovering Moroccan culture with Authentic Morocco Adventures"
-                                                loading="eager">
+                                                width="70" height="71" loading="eager" decoding="async">
                                             <div class="testimonials__icon" aria-hidden="true">
                                                 <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -2022,7 +2040,7 @@
                                         <div class="testimonials__image size-100 rounded-full">
                                             <img src="{{ asset('assets/images/reviews/testimonial-james-usa_bria.webp') }}"
                                                 alt="James Peterson, traveler from USA praising seamless Morocco trip planning with Authentic Morocco Adventures"
-                                                loading="eager">
+                                                width="70" height="71" loading="eager" decoding="async">
                                             <div class="testimonials__icon" aria-hidden="true">
                                                 <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -2057,7 +2075,7 @@
                                         <div class="testimonials__image size-100 rounded-full">
                                             <img src="{{ asset('assets/images/reviews/testimonial-aysha-morocco_bria.webp') }}"
                                                 alt="Aysha El Fassi, Moroccan traveler exploring hidden gems with Authentic Morocco Adventures"
-                                                loading="eager">
+                                                width="70" height="71" loading="eager" decoding="async">
                                             <div class="testimonials__icon" aria-hidden="true">
                                                 <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -2092,7 +2110,7 @@
                                         <div class="testimonials__image size-100 rounded-full">
                                             <img src="{{ asset('assets/images/reviews/testimonial-anastasia-russia_bria.webp') }}"
                                                 alt="Anastasia Ivanova, traveler from Russia sharing a professional and safe experience with Authentic Morocco Adventures"
-                                                loading="eager">
+                                                width="70" height="71" loading="eager" decoding="async">
                                             <div class="testimonials__icon" aria-hidden="true">
                                                 <svg width="16" height="13" viewBox="0 0 16 13" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">

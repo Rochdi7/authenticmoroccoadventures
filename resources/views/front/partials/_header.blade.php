@@ -102,8 +102,12 @@
         <div class="header__left">
             <div class="header__logo">
                 <a href="{{ route('home') }}" class="header__logo">
-                    <img src="/assets/images/logo/ama_logo_white.png" alt="Authentic Morocco Adventures Logo"
-                        width="1126" height="221" class="header__logoImg">
+                    <img src="/assets/images/logo/ama_logo_white-360w.webp"
+                        srcset="/assets/images/logo/ama_logo_white-180w.webp 180w,
+                                /assets/images/logo/ama_logo_white-360w.webp 360w"
+                        sizes="180px"
+                        alt="Authentic Morocco Adventures Logo"
+                        width="360" height="71" class="header__logoImg" decoding="async">
                 </a>
 
                 <style>
