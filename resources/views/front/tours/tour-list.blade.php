@@ -977,6 +977,15 @@
                                 $title = $cover?->getCustomProperty('title') ?? $tour->title;
                                 $caption = $cover?->getCustomProperty('caption') ?? '';
                                 $desc = $cover?->getCustomProperty('description') ?? '';
+
+                                // Responsive card variants. hasGeneratedConversion() means a
+                                // missing conversion silently falls back to the original rather
+                                // than emitting a 404 in srcset.
+                                $cardSrcset = null;
+                                if ($cover && $cover->hasGeneratedConversion('card') && $cover->hasGeneratedConversion('card2x')) {
+                                    $cardSrcset = $cover->getUrl('card') . ' 560w, ' . $cover->getUrl('card2x') . ' 1120w';
+                                    $coverUrl = $cover->getUrl('card');
+                                }
                             @endphp
 
                             @php
@@ -989,9 +998,10 @@
                                     <div class="tourCard__header">
                                         <div class="tourCard__image ratio ratio-28:20">
                                             <img src="{{ $coverUrl }}" alt="{{ $alt }}"
+                                                @if ($cardSrcset) srcset="{{ $cardSrcset }}" sizes="(max-width: 767px) 92vw, (max-width: 1199px) 46vw, 560px" @endif
                                                 title="{{ $title }}" data-caption="{{ $caption }}"
                                                 data-description="{{ $desc }}" class="img-ratio rounded-12"
-                                                loading="lazy" width="560" height="400">
+                                                loading="lazy" decoding="async" width="560" height="400">
                                         </div>
 
                                         <button class="tourCard__favorite js-favorite-btn swiper-no-swiping"

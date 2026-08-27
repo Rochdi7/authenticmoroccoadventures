@@ -129,5 +129,23 @@ class Tour extends Model implements HasMedia
             ->height(800)
             ->sharpen(10)
             ->nonQueued();
+
+        // Card-sized WebP variants for responsive srcset on listing/grid cards.
+        // Cards render at ~560x400 CSS px, so 560w covers 1x and 1120w covers 2x
+        // DPR. Serving these instead of the full-size original is the single
+        // biggest image-weight saving on listing pages.
+        $this->addMediaConversion('card')
+            ->format('webp')
+            ->width(560)
+            ->height(400)
+            ->quality(82)
+            ->nonQueued();
+
+        $this->addMediaConversion('card2x')
+            ->format('webp')
+            ->width(1120)
+            ->height(800)
+            ->quality(78)
+            ->nonQueued();
     }
 }
