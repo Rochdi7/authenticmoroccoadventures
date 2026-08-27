@@ -1,7 +1,12 @@
 @extends('front.layouts.app2')
 
 @php
-    $seoTitle = ($post->title ?? 'Blog') . ' | Authentic Morocco Adventures';
+    $seoBase  = trim($post->title ?? 'Blog');
+    // Append the brand only when the result still fits Google's ~60-char title budget,
+    // so descriptive keywords are never truncated away in the SERP.
+    $seoTitle = mb_strlen($seoBase) + 31 <= 60
+        ? $seoBase . ' | Authentic Morocco Adventures'
+        : $seoBase;
     $seoDesc = \Illuminate\Support\Str::limit(trim(strip_tags($post->excerpt ?? '')), 155);
     $seoDesc = $seoDesc !== '' ? $seoDesc : 'Read ' . ($post->title ?? 'this article') . ' on the Authentic Morocco Adventures blog — Morocco travel tips, guides and stories from local experts.';
     $seoImage = ($post->getFirstMediaUrl('featured_image') ?: null);
