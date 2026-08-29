@@ -5,9 +5,9 @@
         <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" alt="reCAPTCHA" width="24" height="24">
         <span>
             Protected by reCAPTCHA &mdash; Google
-            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Privacy Policy</a>
+            <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a>
             and
-            <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Terms</a>
+            <a href="https://policies.google.com/terms" target="_blank" rel="noopener">Google Terms</a>
             apply.
         </span>
     </div>

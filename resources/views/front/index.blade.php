@@ -997,7 +997,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="{{ route('front.locations.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco destinations">
-                            <span>See all</span>
+                            <span>All destinations</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
                     </div>
@@ -1206,7 +1206,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="{{ route('front.tours.multiDay') }}" class="buttonArrow d-flex items-center" aria-label="See all multi-day Morocco tours">
-                            <span>See all</span>
+                            <span>All tours</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
                     </div>
@@ -1341,7 +1341,7 @@
                     <div class="col-auto">
                         <a href="{{ route('front.tours.dayTrips') }}" aria-label="See all Morocco day trips"
                             class="buttonArrow d-flex items-center">
-                            <span>See all</span>
+                            <span>All day trips</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
                     </div>
@@ -1542,7 +1542,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="{{ route('front.activities.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco activities">
-                            <span>See all</span>
+                            <span>All activities</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
                     </div>
@@ -1698,7 +1698,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="{{ route('front.trekking.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Atlas Mountains treks">
-                            <span>See all</span>
+                            <span>All treks</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
                     </div>
@@ -2161,7 +2161,7 @@
                     </div>
                     <div class="col-auto">
                         <a href="{{ route('blog.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco travel articles">
-                            <span>See all</span>
+                            <span>All articles</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
                     </div>
