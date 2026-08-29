@@ -63,7 +63,7 @@
 
             <div class="col-lg-4 col-md-6">
                 <div class="px-30 text-center">
-                    <h3 class="text-30 md:text-24 fw-700">Contact Details</h3>
+                    <h2 class="text-30 md:text-24 fw-700">Contact Details</h2>
 
                     <div class="mt-20 md:mt-10 text-16">
                         <p class="mb-10">
@@ -84,7 +84,7 @@
 
             <div class="col-lg-4 col-md-6">
                 <div class="px-30 text-center">
-                    <h3 class="text-30 md:text-24 fw-700">Business Info</h3>
+                    <h2 class="text-30 md:text-24 fw-700">Business Info</h2>
 
                     <div class="mt-20 md:mt-10 text-16">
                         <p class="mb-10">
@@ -107,7 +107,7 @@
 
             <div class="col-lg-4 col-md-12">
                 <div class="px-30 text-center">
-                    <h3 class="text-30 md:text-24 fw-700">Reservations & Payment</h3>
+                    <h2 class="text-30 md:text-24 fw-700">Reservations & Payment</h2>
 
                     <div class="mt-20 md:mt-10 text-16">
                         <p class="mb-10">

@@ -1,0 +1,80 @@
+/* WCAG contrast corrections.
+ *
+ * The brand gold --color-accent-1 (#C49539) measures 2.73:1 on white, below the
+ * 4.5:1 AA minimum for body text. It is fine (6.99:1) on the dark navy surfaces,
+ * so this file changes ONLY the cases that sit on a light background and leaves
+ * the brand colour intact everywhere it already passes.
+ *
+ * Loaded after main.min.css so these rules win on specificity ties.
+ */
+
+:root {
+    /* Text-only gold for light backgrounds: 5.30:1 on white. */
+    --color-accent-1-text: #8A6521;
+}
+
+/* 1. Gold TEXT on light surfaces -------------------------------------------
+ * .text-accent-1 is used both on the dark footer (fine) and on white sections
+ * (fails). Scope the darker gold to the light contexts only. */
+.bg-white .text-accent-1,
+.bg-light-1 .text-accent-1,
+.bg-accent-1-05 .text-accent-1,
+section:not([class*="bg-dark"]):not([class*="bg-accent-2"]) .text-accent-1 {
+    color: var(--color-accent-1-text);
+}
+
+/* Keep the footer, dark sections and any explicitly dark surface on the
+ * original brand gold - it already passes there and is part of the look. */
+.footer .text-accent-1,
+.bg-dark-1 .text-accent-1,
+.bg-dark-2 .text-accent-1,
+.bg-dark-3 .text-accent-1,
+.bg-accent-2 .text-accent-1,
+[class*="-dark"] .text-accent-1 {
+    color: var(--color-accent-1);
+}
+
+/* 2. Buttons: white on gold is 2.73:1 -------------------------------------
+ * The navy foreground is 6.99:1 on the same gold, so recolour the label
+ * rather than the button. Background, size and shape are untouched. */
+.button.bg-accent-1.text-white,
+.button.bg-accent-1.text-white:hover,
+.button.bg-accent-1.text-white:focus {
+    color: var(--color-dark-1) !important;
+}
+
+/* 3. Links that rely on colour alone --------------------------------------
+ * Lighthouse flags the gold phone link inside the dark footer block: it is
+ * distinguished from the surrounding white text only by hue. Underline it. */
+.footer a.text-accent-1,
+.footer__content a.text-accent-1 {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* 4. Touch targets in the mobile mega-menu -------------------------------
+ * Nested submenu links inherit no vertical padding from the theme, so in the
+ * long tour lists they end up under the 24x24 CSS-pixel minimum and sit flush
+ * against each other. Give them a real minimum height. Only affects the
+ * off-canvas mobile menu, which is already a full-width stacked list, so the
+ * visual layout is unchanged apart from slightly roomier rows. */
+.menu .submenu__item > a {
+    display: flex;
+    align-items: center;
+    min-height: 44px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+/* 5. Search-bar field labels ---------------------------------------------
+ * These were h5 elements, which skipped heading levels (h1 to h5) and put form
+ * field captions into the document outline. They are now span.h5-label.
+ * This reproduces the theme's original `.searchFormItem__content > h5` rules
+ * verbatim so the rendering is unchanged. Defined here (rather than per page)
+ * so every template that uses the search bar picks it up. */
+.searchFormItem__content > .h5-label {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    line-height: 1.6;
+}

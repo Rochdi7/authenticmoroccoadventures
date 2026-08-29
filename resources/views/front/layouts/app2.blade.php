@@ -6,6 +6,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {{-- Critical layout CSS: loaded render-blocking, on purpose, so the page never paints unstyled --}}
+    <link rel="stylesheet" href="{{ asset('assets/css/vendors.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/main.min.css') }}">
+
     {{-- Analytics: the gtag() queue is defined here so any early call still
          records, but the network requests are started after load (see the
          bottom of <body>). This keeps third-party JS off the critical path
@@ -18,31 +22,27 @@
     </script>
 
     <!-- Preconnect to critical origins -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 
     <!-- Google fonts (with font-display swap) -->
-    <link
-        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap"
-        rel="stylesheet">
+    {{-- Self-hosted DM Sans (see public/assets/css/dm-sans.css). Preloading the
+         latin upright face lets text paint without a round-trip to a third party. --}}
+    <link rel="preload" as="font" type="font/woff2" crossorigin
+          href="{{ asset('assets/fonts/dm-sans/dm-sans-002a94d0.woff2') }}">
+    {{-- Inlined: at ~650 bytes gzipped the @font-face block is far cheaper as
+         markup than as a third render-blocking request. --}}
+    <style>{!! file_get_contents(public_path('assets/css/dm-sans.css')) !!}</style>
 
-    <!-- Bootstrap Icons CDN -->
-    {{-- Bootstrap Icons: decorative only (12 uses site-wide), so it is loaded
-         non-render-blocking. The preload+onload swap lets the browser fetch it at
-         high priority without holding up first paint; <noscript> keeps it working
-         with JS disabled. --}}
-    <link rel="preload" as="style"
-          href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
-          onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-        <link rel="stylesheet"
-              href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
-    </noscript>
+    {{-- The theme's icomoon glyph font drives the visible UI icons (search bar,
+         arrows, social). Preloading it stops the icon row reflowing once it
+         arrives, which was a large part of the measured layout shift. --}}
+    <link rel="preload" as="font" type="font/woff" crossorigin
+          href="{{ asset('assets/fonts/icomoon.woff?yqkbbr') }}">
 
-    <!-- Critical layout CSS: loaded render-blocking, on purpose, so the page never paints unstyled -->
-    <link rel="stylesheet" href="{{ asset('assets/css/vendors.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/main.min.css') }}">
+
+    {{-- WCAG contrast corrections (see public/assets/css/a11y-contrast.css).
+         Inlined rather than linked: it is ~2 KB and must not cost another
+         render-blocking round-trip. --}}
+    <style>{!! file_get_contents(public_path('assets/css/a11y-contrast.css')) !!}</style>
 
     {{-- SEO Meta Data --}}
     <title>@yield('title', 'Authentic Morocco Adventures | Explore Morocco with a Local Tour Guide')</title>
@@ -209,6 +209,15 @@
 </head>
 
 <body>
+<script>
+    /* Decorative loops start only after load - see .anims-ready in the CSS.
+       Inline so the class lands without waiting on any external script. */
+    (function () {
+        function ready() { document.documentElement.classList.add('anims-ready'); }
+        if (document.readyState === 'complete') { ready(); }
+        else { window.addEventListener('load', ready); }
+    })();
+</script>
 <div class="tourPagesSidebar" data-x="tourPagesSidebar" data-x-toggle="-is-active">
     <div class="tourPagesSidebar__overlay" aria-hidden="true"></div>
     <div class="tourPagesSidebar__content">
@@ -287,10 +296,21 @@
             document.head.appendChild(ah);
         }
 
+        // Kick off after load AND after the browser has been idle for a moment,
+        // so the 500 KB gtag bundle never competes with the initial render. The
+        // gtag() queue above means nothing is lost in the meantime.
+        function schedule() {
+            if ('requestIdleCallback' in window) {
+                requestIdleCallback(loadAnalytics, { timeout: 4000 });
+            } else {
+                setTimeout(loadAnalytics, 2500);
+            }
+        }
+
         if (document.readyState === 'complete') {
-            loadAnalytics();
+            schedule();
         } else {
-            window.addEventListener('load', loadAnalytics);
+            window.addEventListener('load', schedule);
         }
     })();
 </script>

@@ -7044,7 +7044,8 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: 24px;
 }
 
-.menu__header h4 {
+.menu__header h4,
+.menu__header .menu__title {
   font-size: 30px;
   font-weight: 700;
   line-height: 1.2;

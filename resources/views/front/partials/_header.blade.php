@@ -1,11 +1,11 @@
 {{-- Mobile-only top contact bar (phone + email). Hidden on desktop (≥768px). --}}
 <div class="mobileTopBar">
-    <a href="tel:+212666107312" class="mobileTopBar__item" aria-label="Call us">
-        <i class="bi bi-telephone-fill"></i>
+    <a href="tel:+212666107312" class="mobileTopBar__item" aria-label="Call us on +212 666 107 312">
+        <x-icon name="telephone-fill" />
         <span>+212 666 107 312</span>
     </a>
-    <a href="mailto:authenticmoroccoadventures@gmail.com" class="mobileTopBar__item" aria-label="Email us">
-        <i class="bi bi-envelope-fill"></i>
+    <a href="mailto:authenticmoroccoadventures@gmail.com" class="mobileTopBar__item" aria-label="Email us at authenticmoroccoadventures@gmail.com">
+        <x-icon name="envelope-fill" />
         <span>authenticmoroccoadventures@gmail.com</span>
     </a>
 </div>
@@ -151,8 +151,8 @@
         <div class="headerMobile__right">
 
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
-                target="_blank" class="tripadvisor-icon-mobile d-flex items-center ml-20">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18">
+                target="_blank" class="tripadvisor-icon-mobile d-flex items-center ml-20" rel="noopener" aria-label="Read our reviews on Tripadvisor">
+                <img src="/assets/images/icon/tripdavisor.svg" alt="" aria-hidden="true" width="18" height="18" loading="lazy" decoding="async">
             </a>
 
             <style>
@@ -176,8 +176,8 @@
 
             <!-- Tripadvisor icon with flying hover effect -->
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
-                target="_blank" class="ml-20 d-flex items-center tripadvisor-hover">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18">
+                target="_blank" class="ml-20 d-flex items-center tripadvisor-hover" rel="noopener" aria-label="Read our reviews on Tripadvisor">
+                <img src="/assets/images/icon/tripdavisor.svg" alt="" aria-hidden="true" width="18" height="18" loading="lazy" decoding="async">
             </a>
         </div>
         <style>
@@ -226,7 +226,7 @@
 
     <div class="menu__container">
         <div class="menu__header">
-            <h4>Main Menu</h4>
+            <div class="menu__title">Main Menu</div>
             <button type="button" class="js-menu-button" aria-label="Close mobile navigation menu"><i class="icon-cross text-10" aria-hidden="true"></i></button>
         </div>
 
@@ -288,14 +288,14 @@
                 <div>
                     <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank" class="d-block text-dark"
                         aria-label="Pinterest">
-                        <i class="bi bi-pinterest"></i>
+                        <x-icon name="pinterest" />
                     </a>
                 </div>
 
                 <div>
                     <a href="https://www.youtube.com/@AuthenticMoroccoAdventures" target="_blank"
                         class="d-block text-dark" aria-label="YouTube">
-                        <i class="bi bi-youtube"></i>
+                        <x-icon name="youtube" />
                     </a>
                 </div>
 

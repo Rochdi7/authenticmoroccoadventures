@@ -50,18 +50,18 @@
                                 <a href="https://www.linkedin.com/in/authentic-moroccoadventures-99812a420/" target="_blank" class="icon-linkedin" aria-label="LinkedIn"></a>
 
                                 <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank" class="text-white" aria-label="Pinterest">
-                                    <i class="bi bi-pinterest"></i>
+                                    <x-icon name="pinterest" />
                                 </a>
 
                                 <a href="https://www.youtube.com/@AuthenticMoroccoAdventures" target="_blank" class="text-white" aria-label="YouTube">
-                                    <i class="bi bi-youtube"></i>
+                                    <x-icon name="youtube" />
                                 </a>
 
                                 {{-- Tripadvisor: brand SVG is teal, so force it white to
                                      match the rest of the icon row (filter turns it white). --}}
                                 <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
-                                    target="_blank" rel="noopener" class="d-flex align-items-center" aria-label="Tripadvisor">
-                                    <img src="{{ asset('assets/images/icon/tripdavisor.svg') }}" alt="Tripadvisor" width="18" height="18"
+                                    target="_blank" rel="noopener" class="d-flex align-items-center" aria-label="Read our reviews on Tripadvisor">
+                                    <img src="{{ asset('assets/images/icon/tripdavisor.svg') }}" alt="" aria-hidden="true" width="18" height="18" loading="lazy" decoding="async"
                                         style="width: 18px; height: 18px; filter: brightness(0) invert(1);">
                                 </a>
                             </div>
@@ -110,7 +110,7 @@
                     <div class="row y-gap-40 justify-between">
 
                         <div class="col-lg-4 col-md-6">
-                            <h4 class="text-20 fw-500 text-accent-1">Contact</h4>
+                            <h3 class="text-20 fw-500 text-accent-1">Contact</h3>
 
                             <div class="y-gap-10 mt-20 text-white">
                                 <span class="d-block">Phone: <a href="tel:+212666107312" class="text-white">+212 666 107 312</a></span>
@@ -120,7 +120,7 @@
                         </div>
 
                         <div class="col-lg-auto col-6">
-                            <h4 class="text-20 fw-500 text-accent-1">Company</h4>
+                            <h3 class="text-20 fw-500 text-accent-1">Company</h3>
                             <nav aria-label="Footer Company Menu">
                                 <div class="y-gap-10 mt-20">
                                     <a class="d-block fw-500 text-white" href="{{ route('front.about') }}">About</a>
@@ -134,7 +134,7 @@
                         </div>
 
                         <div class="col-lg-auto col-6">
-                            <h4 class="text-20 fw-500 text-accent-1">Explore</h4>
+                            <h3 class="text-20 fw-500 text-accent-1">Explore</h3>
                             <nav aria-label="Footer Explore Menu">
                                 <div class="y-gap-10 mt-20">
                                     <a class="d-block fw-500 text-white" href="{{ route('front.tours.index') }}">Tours</a>
@@ -146,7 +146,7 @@
                         </div>
 
                         <div class="col-lg-3 col-md-6">
-                            <h4 class="text-20 fw-500 text-accent-1">Newsletter</h4>
+                            <h3 class="text-20 fw-500 text-accent-1">Newsletter</h3>
                             <p class="text-white mt-20">Subscribe to the free newsletter and stay up to date</p>
 
                             <form class="footer__newsletter" action="{{ route('newsletter.subscribe') }}" method="POST" data-recaptcha-action="newsletter">

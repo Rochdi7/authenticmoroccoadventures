@@ -25,8 +25,9 @@
 
         <div class="headerMobile__right">
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
-                target="_blank" class="tripadvisor-icon-mobile d-flex items-center">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18">
+                target="_blank" rel="noopener" class="tripadvisor-icon-mobile d-flex items-center"
+                aria-label="Read our reviews on Tripadvisor">
+                <img src="/assets/images/icon/tripdavisor.svg" alt="" aria-hidden="true" width="18" height="18" loading="lazy" decoding="async">
             </a>
         </div>
 
@@ -43,7 +44,8 @@
         <div class="header__right">
             <a href="https://www.tripadvisor.com/Attraction_Review-g293734-d6868602-Reviews-Authentic_Morocco_Adventures-Marrakech_Marrakech_Safi.html"
                 target="_blank" class="button -sm rounded-200 ml-30 d-flex items-center">
-                <img src="/assets/images/icon/tripdavisor.svg" alt="Tripadvisor" width="18" height="18"
+                <img src="/assets/images/icon/tripdavisor.svg" alt="" aria-hidden="true" width="18" height="18"
+                    loading="lazy" decoding="async"
                     style="width: 18px; height: 18px; margin-right: 5px;">
                 Tripadvisor
             </a>
@@ -58,7 +60,7 @@
 
     <div class="menu__container">
         <div class="menu__header">
-            <h4>Main Menu</h4>
+            <div class="menu__title">Main Menu</div>
             <button type="button" class="js-menu-button" aria-label="Close mobile navigation menu"><i class="icon-cross text-10" aria-hidden="true"></i></button>
         </div>
 
@@ -108,14 +110,14 @@
                 <div>
                     <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank" class="d-block text-dark"
                         aria-label="Pinterest">
-                        <i class="bi bi-pinterest"></i>
+                        <x-icon name="pinterest" />
                     </a>
                 </div>
 
                 <div>
                     <a href="https://www.youtube.com/@AuthenticMoroccoAdventures" target="_blank"
                         class="d-block text-dark" aria-label="YouTube">
-                        <i class="bi bi-youtube"></i>
+                        <x-icon name="youtube" />
                     </a>
                 </div>
             </div>

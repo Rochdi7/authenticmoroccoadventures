@@ -64,10 +64,11 @@
 
                 <div data-anim-child="slide-up" class="col-lg-6">
                     <figure class="m-0">
-                        <img src="{{ asset('assets/images/hero/chefchaouen-blue-city-aerial-drone-view-morocco.avif') }}"
+                        <x-rimg src="assets/images/hero/chefchaouen-blue-city-aerial-drone-view-morocco.avif"
                             alt="Locals walking through a narrow terracotta-walled street in the Marrakech medina, Morocco"
                             title="Narrow street in the Marrakech medina, Morocco" class="rounded-12 w-100 h-auto"
-                            loading="lazy" width="960" height="640" style="object-fit: cover;">
+                            :w="960" :h="640" sizes="(max-width: 991px) 100vw, 50vw"
+                            style="object-fit: cover;" />
                         <figcaption class="visually-hidden">
                             A traditional narrow alley in the old medina of Marrakech, with locals and terracotta walls
                             capturing everyday Moroccan life.

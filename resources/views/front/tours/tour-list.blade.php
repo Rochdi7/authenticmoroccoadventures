@@ -336,7 +336,7 @@
                                 <div class="sidebar__content">
                                     <!-- Tour Type -->
                                     <div class="sidebar__item">
-                                        <h5 class="text-18 fw-500">Tour Type</h5>
+                                        <div class="text-18 fw-500 lh-16">Tour Type</div>
                                         <div class="pt-15">
                                             <div class="d-flex flex-column y-gap-15">
                                                 @php
@@ -351,6 +351,7 @@
                                                         <div class="form-checkbox">
                                                             <input type="radio" name="type"
                                                                 value="{{ $typeKey }}"
+                                                                aria-label="Filter by tour type: {{ $typeLabel }}"
                                                                 {{ request('type') === $typeKey ? 'checked' : '' }}>
                                                             <div class="form-checkbox__mark">
                                                                 <div class="form-checkbox__icon">
@@ -378,7 +379,7 @@
                                         <div class="accordion -simple-2 js-accordion">
                                             <div class="accordion__item js-accordion-item-active">
                                                 <div class="accordion__button mb-10 d-flex items-center justify-between">
-                                                    <h5 class="text-18 fw-500">Filter Price</h5>
+                                                    <div class="text-18 fw-500 lh-16">Filter Price</div>
 
                                                     <div class="accordion__icon flex-center">
                                                         <i class="icon-chevron-down"></i>
@@ -448,7 +449,7 @@
 
                                     <!-- Duration (Desktop Sidebar) -->
                                     <div class="sidebar__item">
-                                        <h5 class="text-18 fw-500">Duration</h5>
+                                        <div class="text-18 fw-500 lh-16">Duration</div>
                                         <div class="pt-15">
                                             <div class="d-flex flex-column y-gap-15" id="duration-list-desktop">
                                                 @foreach ($durations as $index => $duration)
@@ -458,6 +459,7 @@
                                                             <div class="form-checkbox">
                                                                 <input type="checkbox" name="duration[]"
                                                                     value="{{ $duration }}"
+                                                                    aria-label="Filter by duration: {{ $duration }}"
                                                                     {{ in_array($duration, $selectedDurations) ? 'checked' : '' }}>
                                                                 <div class="form-checkbox__mark">
                                                                     <div class="form-checkbox__icon">
@@ -488,7 +490,7 @@
 
                                     <!-- Rating -->
                                     <div class="sidebar__item">
-                                        <h5 class="text-18 fw-500">Rating</h5>
+                                        <div class="text-18 fw-500 lh-16">Rating</div>
                                         <div class="pt-15">
                                             <div class="d-flex flex-column y-gap-15">
                                                 @foreach (range(5, 1) as $stars)
@@ -496,6 +498,7 @@
                                                         <div class="form-checkbox">
                                                             <input type="checkbox" name="ratings[]"
                                                                 value="{{ $stars }}"
+                                                                aria-label="Filter by rating: {{ $stars }} stars and up"
                                                                 {{ in_array($stars, request('ratings', [])) ? 'checked' : '' }}>
                                                             <div class="form-checkbox__mark">
                                                                 <div class="form-checkbox__icon">
@@ -522,7 +525,7 @@
 
                                     <!-- Specials -->
                                     <div class="sidebar__item">
-                                        <h5 class="text-18 fw-500">Specials</h5>
+                                        <div class="text-18 fw-500 lh-16">Specials</div>
                                         <div class="pt-15">
                                             <div class="d-flex flex-column y-gap-15">
                                                 @php
@@ -547,6 +550,7 @@
                                                             <div class="form-checkbox">
                                                                 <input type="checkbox" name="specials[]"
                                                                     value="{{ $special['key'] }}"
+                                                                    aria-label="Filter by offer: {{ $special['label'] ?? $special['key'] }}"
                                                                     {{ in_array($special['key'], $selectedSpecials) ? 'checked' : '' }}>
                                                                 <div class="form-checkbox__mark">
                                                                     <div class="form-checkbox__icon">
@@ -647,7 +651,7 @@
                                             <div class="sidebar__content">
                                                 <!-- Tour Type -->
                                                 <div class="sidebar__item">
-                                                    <h5 class="text-18 fw-500">Tour Type</h5>
+                                                    <div class="text-18 fw-500 lh-16">Tour Type</div>
                                                     <div class="pt-15">
                                                         <div class="d-flex flex-column y-gap-15">
                                                             @php
@@ -662,6 +666,7 @@
                                                                     <div class="form-checkbox">
                                                                         <input type="radio" name="type"
                                                                             value="{{ $typeKey }}"
+                                                                            aria-label="Filter by tour type: {{ $typeLabel }}"
                                                                             {{ request('type') === $typeKey ? 'checked' : '' }}>
                                                                         <div class="form-checkbox__mark">
                                                                             <div class="form-checkbox__icon">
@@ -686,7 +691,7 @@
 
                                                 <!-- Tour Category -->
                                                 <div class="sidebar__item">
-                                                    <h5 class="text-18 fw-500">Tour Category</h5>
+                                                    <div class="text-18 fw-500 lh-16">Tour Category</div>
                                                     <div class="pt-15">
                                                         <div class="d-flex flex-column y-gap-15">
                                                             @foreach ($tourCategories as $index => $category)
@@ -696,6 +701,7 @@
                                                                         <div class="form-checkbox">
                                                                             <input type="checkbox" name="categories[]"
                                                                                 value="{{ $category->id }}"
+                                                                                aria-label="Filter by category: {{ $category->name }}"
                                                                                 {{ in_array($category->id, request()->input('categories', [])) ? 'checked' : '' }}>
                                                                             <div class="form-checkbox__mark">
                                                                                 <div class="form-checkbox__icon">
@@ -732,7 +738,7 @@
                                                         <div class="accordion__item js-accordion-item-active">
                                                             <div
                                                                 class="accordion__button mb-10 d-flex items-center justify-between">
-                                                                <h5 class="text-18 fw-500">Filter Price</h5>
+                                                                <div class="text-18 fw-500 lh-16">Filter Price</div>
 
                                                                 <div class="accordion__icon flex-center">
                                                                     <i class="icon-chevron-down"></i>
@@ -782,7 +788,7 @@
 
                                                 <!-- Duration (Mobile Sidebar) -->
                                                 <div class="sidebar__item">
-                                                    <h5 class="text-18 fw-500">Duration</h5>
+                                                    <div class="text-18 fw-500 lh-16">Duration</div>
                                                     <div class="pt-15">
                                                         <div class="d-flex flex-column y-gap-15"
                                                             id="duration-list-mobile">
@@ -793,6 +799,7 @@
                                                                         <div class="form-checkbox">
                                                                             <input type="checkbox" name="duration[]"
                                                                                 value="{{ $duration }}"
+                                                                                aria-label="Filter by duration: {{ $duration }}"
                                                                                 {{ in_array($duration, $selectedDurations) ? 'checked' : '' }}>
                                                                             <div class="form-checkbox__mark">
                                                                                 <div class="form-checkbox__icon">
@@ -854,7 +861,7 @@
 
                                                 <!-- Rating -->
                                                 <div class="sidebar__item">
-                                                    <h5 class="text-18 fw-500">Rating</h5>
+                                                    <div class="text-18 fw-500 lh-16">Rating</div>
                                                     <div class="pt-15">
                                                         <div class="d-flex flex-column y-gap-15">
                                                             @foreach (range(5, 1) as $stars)
@@ -862,6 +869,7 @@
                                                                     <div class="form-checkbox">
                                                                         <input type="checkbox" name="ratings[]"
                                                                             value="{{ $stars }}"
+                                                                            aria-label="Filter by rating: {{ $stars }} stars and up"
                                                                             {{ in_array($stars, request('ratings', [])) ? 'checked' : '' }}>
                                                                         <div class="form-checkbox__mark">
                                                                             <div class="form-checkbox__icon">
@@ -889,7 +897,7 @@
 
                                                 <!-- Specials -->
                                                 <div class="sidebar__item">
-                                                    <h5 class="text-18 fw-500">Specials</h5>
+                                                    <div class="text-18 fw-500 lh-16">Specials</div>
                                                     <div class="pt-15">
                                                         <div class="d-flex flex-column y-gap-15">
                                                             @php
@@ -914,6 +922,7 @@
                                                                         <div class="form-checkbox">
                                                                             <input type="checkbox" name="specials[]"
                                                                                 value="{{ $special['key'] }}"
+                                                                                aria-label="Filter by offer: {{ $special['label'] ?? $special['key'] }}"
                                                                                 {{ in_array($special['key'], $selectedSpecials) ? 'checked' : '' }}>
                                                                             <div class="form-checkbox__mark">
                                                                                 <div class="form-checkbox__icon">
@@ -1021,11 +1030,11 @@
                                             </div>
                                         @endif
 
-                                        <h3 class="tourCard__title text-16 fw-500 mt-5">
+                                        <h2 class="tourCard__title text-16 fw-500 mt-5">
                                             <a href="{{ route('front.tours.show', $tour->slug) }}" class="text-dark-1">
                                                 <span>{{ Str::limit($tour->title, 50) }}</span>
                                             </a>
-                                        </h3>
+                                        </h2>
 
                                         <div class="tourCard__rating d-flex items-center text-13 mt-5">
                                             @if ($reviewsCount > 0)
@@ -1083,8 +1092,8 @@
                                 {{-- Previous Page Button --}}
                                 @if ($tours->currentPage() > 1)
                                     <a href="{{ $tours->previousPageUrl() }}"
-                                        class="pagination__button button -accent-1 mr-15 -prev">
-                                        <i class="icon-arrow-left text-15"></i>
+                                        class="pagination__button button -accent-1 mr-15 -prev" aria-label="Go to the previous page">
+                                        <i class="icon-arrow-left text-15" aria-hidden="true"></i>
                                     </a>
                                 @endif
 
@@ -1131,8 +1140,8 @@
                                 {{-- Next Page Button --}}
                                 @if ($tours->hasMorePages())
                                     <a href="{{ $tours->nextPageUrl() }}"
-                                        class="pagination__button button -accent-1 ml-15 -next">
-                                        <i class="icon-arrow-right text-15"></i>
+                                        class="pagination__button button -accent-1 ml-15 -next" aria-label="Go to the next page">
+                                        <i class="icon-arrow-right text-15" aria-hidden="true"></i>
                                     </a>
                                 @endif
                             </div>

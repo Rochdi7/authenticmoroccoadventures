@@ -62,24 +62,24 @@
 
                             <div class="footerSocials__icons">
                                 <a href="https://web.facebook.com/authenticmoroccoadventures/" target="_blank"
-                                    class="icon-facebook"></a>
+                                    class="icon-facebook" aria-label="Follow us on Facebook"></a>
 
-                                <a href="https://x.com/AMADMCmor" target="_blank" class="icon-twitter"></a>
+                                <a href="https://x.com/AMADMCmor" target="_blank" class="icon-twitter" aria-label="Follow us on X (Twitter)"></a>
 
                                 <a href="https://www.instagram.com/authenticmoroccoadventures/" target="_blank"
-                                    class="icon-instagram"></a>
+                                    class="icon-instagram" aria-label="Follow us on Instagram"></a>
 
                                 <a href="https://www.linkedin.com/in/authentic-moroccoadventures-99812a420/" target="_blank"
-                                    class="icon-linkedin"></a>
+                                    class="icon-linkedin" aria-label="Follow us on LinkedIn"></a>
 
                                 <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank"
-                                    class="text-dark">
-                                    <i class="bi bi-pinterest"></i>
+                                    class="text-dark" aria-label="Follow us on Pinterest">
+                                    <x-icon name="pinterest" />
                                 </a>
 
                                 <a href="https://www.youtube.com/@AuthenticMoroccoAdventures"
-                                    target="_blank" class="text-dark">
-                                    <i class="bi bi-youtube"></i>
+                                    target="_blank" class="text-dark" aria-label="Follow us on YouTube">
+                                    <x-icon name="youtube" />
                                 </a>
 
                                 {{-- Tripadvisor (light footer: keep the brand teal SVG as-is). --}}
@@ -132,7 +132,7 @@
                 <div class="row y-gap-40 justify-between">
 
                     <div class="col-lg-4 col-md-6">
-                        <h4 class="text-20 fw-500">Contact</h4>
+                        <h3 class="text-20 fw-500">Contact</h3>
 
                         <div class="y-gap-10 mt-20">
                             <span class="d-block">Phone: +212 666 107 312</span>
@@ -142,7 +142,7 @@
                     </div>
 
                     <div class="col-lg-auto col-6">
-                        <h4 class="text-20 fw-500">Company</h4>
+                        <h3 class="text-20 fw-500">Company</h3>
 
                         <div class="y-gap-10 mt-20">
                             <a class="d-block fw-500" href="{{ route('front.about') }}">
@@ -172,7 +172,7 @@
                     </div>
 
                     <div class="col-lg-auto col-6">
-                        <h4 class="text-20 fw-500">Explore</h4>
+                        <h3 class="text-20 fw-500">Explore</h3>
 
                         <div class="y-gap-10 mt-20">
                             <a class="d-block fw-500" href="{{ route('front.tours.index') }}">
@@ -192,7 +192,7 @@
                     </div>
 
                     <div class="col-lg-3 col-md-6">
-                        <h4 class="text-20 fw-500">Newsletter</h4>
+                        <h3 class="text-20 fw-500">Newsletter</h3>
                         <p class="mt-20">Subscribe to the free newsletter and stay up to date</p>
 
                         <form class="footer__newsletter" action="{{ route('newsletter.subscribe') }}" method="POST" data-recaptcha-action="newsletter">

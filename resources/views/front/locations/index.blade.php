@@ -77,9 +77,9 @@
                             </div>
 
                             <div class="featureCard__content">
-                                <h4 class="text-white">
+                                <h3 class="text-white">
                                     {{ $location->name }}
-                                </h4>
+                                </h3>
                             </div>
                         </a>
                     @endforeach

@@ -34,7 +34,8 @@
   justify-content: space-between;
   margin-bottom: 24px;
 }
-.menu__header h4 {
+.menu__header h4,
+.menu__header .menu__title {
   font-size: 30px;
   font-weight: 700;
   line-height: 1.2;

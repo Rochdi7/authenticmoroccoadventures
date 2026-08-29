@@ -104,9 +104,9 @@
                                              </div>
                                          </div>
 
-                                         <h3 class="blogCard__title text-30 lh-15 mt-10">
+                                         <h2 class="blogCard__title text-30 lh-15 mt-10">
                                              {{ $post->title }}
-                                         </h3>
+                                         </h2>
 
                                          <p class="mt-10">
                                              {{ \Illuminate\Support\Str::limit(strip_tags($post->excerpt), 150) }}
@@ -145,12 +145,12 @@
 
                                  {{-- Previous --}}
                                  @if ($posts->onFirstPage())
-                                     <button class="pagination__button button -accent-1 mr-15 -prev" disabled>
+                                     <button class="pagination__button button -accent-1 mr-15 -prev" aria-label="Go to the previous page" disabled>
                                          <i class="icon-arrow-left text-15" style="font-size: 12px;"></i>
                                      </button>
                                  @else
                                      <a href="{{ $posts->previousPageUrl() }}"
-                                         class="pagination__button button -accent-1 mr-15 -prev">
+                                         class="pagination__button button -accent-1 mr-15 -prev" aria-label="Go to the previous page">
                                          <i class="icon-arrow-left text-15" style="font-size: 12px;"></i>
                                      </a>
                                  @endif
@@ -169,11 +169,11 @@
                                  {{-- Next --}}
                                  @if ($posts->hasMorePages())
                                      <a href="{{ $posts->nextPageUrl() }}"
-                                         class="pagination__button button -accent-1 ml-15 -next">
+                                         class="pagination__button button -accent-1 ml-15 -next" aria-label="Go to the next page">
                                          <i class="icon-arrow-right text-15" style="font-size: 12px;"></i>
                                      </a>
                                  @else
-                                     <button class="pagination__button button -accent-1 ml-15 -next" disabled>
+                                     <button class="pagination__button button -accent-1 ml-15 -next" aria-label="Go to the next page" disabled>
                                          <i class="icon-arrow-right text-15" style="font-size: 12px;"></i>
                                      </button>
                                  @endif
@@ -212,7 +212,7 @@
 
                          {{-- Categories --}}
                          <div class="sidebar__item">
-                             <h4 class="text-18 fw-500 mb-20">Blog Categories</h4>
+                             <h2 class="text-18 fw-500 mb-20">Blog Categories</h2>
 
                              <div class="d-flex flex-column y-gap-5">
                                  @foreach ($categories as $category)
@@ -226,7 +226,7 @@
 
                          {{-- Recent Posts --}}
                          <div class="sidebar__item">
-                             <h4 class="text-18 fw-500 mb-20">Recent Posts</h4>
+                             <h2 class="text-18 fw-500 mb-20">Recent Posts</h2>
 
                              <div class="d-flex y-gap-20 flex-column">
                                  @foreach ($recentPosts as $recent)
@@ -249,7 +249,7 @@
 
                          {{-- Tags --}}
                          <div class="sidebar__item">
-                             <h4 class="text-18 fw-500 mb-20">Tags</h4>
+                             <h2 class="text-18 fw-500 mb-20">Tags</h2>
 
                              <div class="sidebar__tags d-flex y-gap-10 x-gap-10">
                                  @foreach ($tags as $tag)

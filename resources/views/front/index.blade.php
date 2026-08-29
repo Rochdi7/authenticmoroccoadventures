@@ -1,9 +1,6 @@
 @extends('front.layouts.app')
 
 @push('styles')
-    {{-- Load Bootstrap Icons only if not already in the layout --}}
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
-
     <style>
         /* ---- Hero typewriter effect (homepage) ---- */
         /* Force the heroIntro visible even though it sits inside the theme's
@@ -18,7 +15,7 @@
            rendered height keeps the layout stable while the text types in.
            min-height (not fixed height) so longer text can still grow. */
         .heroIntro__title {
-            min-height: 2.4em;
+            min-height: 2.4em;   /* 2 lines at line-height 1.2 */
         }
 
         .heroIntro__text {
@@ -26,8 +23,14 @@
         }
 
         @media (max-width: 767px) {
-            .heroIntro__title { min-height: 3.2em; }
-            .heroIntro__text  { min-height: 5.4em; }
+            .heroIntro__title { min-height: 2.5em; }
+            .heroIntro__text  { min-height: 5.7em; }
+        }
+
+        /* Below 576px the title steps down to 26px and wraps to three lines. */
+        @media (max-width: 575px) {
+            .heroIntro__title { min-height: 3.7em; }
+            .heroIntro__text  { min-height: 6.1em; }
         }
 
         /* Blinking caret that trails the typed text. It's a span the JS keeps
@@ -60,15 +63,6 @@
             100% {
                 opacity: 0;
             }
-        }
-
-        /* Reserve height so the hero doesn't jump as text types in. */
-        .heroIntro__title {
-            min-height: 1.1em;
-        }
-
-        .heroIntro__text {
-            min-height: 3em;
         }
 
         /* Reduce the hero title size (theme default is 70px) for a calmer,
@@ -110,6 +104,10 @@
             object-fit: cover;
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
+            /* Composite the crossfade on the GPU instead of repainting three
+               full-viewport images on the main thread every 5s. */
+            will-change: opacity;
+            transform: translateZ(0);
         }
 
         .js-hero-carousel .heroSlide.is-active {
@@ -147,6 +145,9 @@
 
         .popularBadge i {
             font-size: 13px;
+        }
+
+        .anims-ready .popularBadge i {
             animation: popularFlameFlicker 1.6s ease-in-out infinite;
         }
 
@@ -278,6 +279,9 @@
             height: auto;
             display: block;
             /* gentle float so it feels alive without being distracting */
+        }
+
+        .anims-ready .ctaTravelArt svg {
             animation: ctaTravelFloat 5s ease-in-out infinite;
         }
 
@@ -321,8 +325,8 @@
 
         /* ---- Hero search-bar labels (Where / When / Tour Type) ----
                Use the brand gold accent-1 (#C49539) for the field labels. */
-        .searchFormItem__content h5 {
-            color: #C49539;
+        .searchFormItem__content .h5-label {
+            color: #8A6521;
         }
 
         /* ---- Hero search DROPDOWNS: make the option rows more compact ----
@@ -500,14 +504,26 @@
     <section data-anim-wrap class="hero -type-8">
         <div data-anim-child="slide-up" class="hero__bg js-hero-carousel">
             <img class="heroSlide is-active"
-                src="{{ asset('assets/images/hero/sahara-desert-luxury-camp-stargazing-morocco.webp') }}"
+                src="{{ asset('assets/images/hero/sahara-desert-luxury-camp-stargazing-morocco-1200w.webp') }}"
+                srcset="{{ asset('assets/images/hero/sahara-desert-luxury-camp-stargazing-morocco-400w.webp') }} 400w,
+                        {{ asset('assets/images/hero/sahara-desert-luxury-camp-stargazing-morocco-800w.webp') }} 800w,
+                        {{ asset('assets/images/hero/sahara-desert-luxury-camp-stargazing-morocco-1200w.webp') }} 1200w"
+                sizes="100vw"
                 alt="Luxury desert camp under the stars in the Sahara, Morocco" width="1920" height="860"
                 fetchpriority="high" decoding="async">
-            <img class="heroSlide" src="{{ asset('assets/images/hero/morocco-sahara-camel-trek-sunset-merzouga.webp') }}"
+            <img class="heroSlide" src="{{ asset('assets/images/hero/morocco-sahara-camel-trek-sunset-merzouga-1200w.webp') }}"
+                srcset="{{ asset('assets/images/hero/morocco-sahara-camel-trek-sunset-merzouga-400w.webp') }} 400w,
+                        {{ asset('assets/images/hero/morocco-sahara-camel-trek-sunset-merzouga-800w.webp') }} 800w,
+                        {{ asset('assets/images/hero/morocco-sahara-camel-trek-sunset-merzouga-1200w.webp') }} 1200w"
+                sizes="100vw"
                 alt="Camel trek at sunset in the Merzouga dunes, Morocco" width="1920" height="860" loading="lazy"
                 decoding="async">
             <img class="heroSlide"
-                src="{{ asset('assets/images/hero/marrakech-palace-courtyard-riad-architecture-morocco.avif') }}"
+                src="{{ asset('assets/images/hero/marrakech-palace-courtyard-riad-architecture-morocco-1200w.webp') }}"
+                srcset="{{ asset('assets/images/hero/marrakech-palace-courtyard-riad-architecture-morocco-400w.webp') }} 400w,
+                        {{ asset('assets/images/hero/marrakech-palace-courtyard-riad-architecture-morocco-800w.webp') }} 800w,
+                        {{ asset('assets/images/hero/marrakech-palace-courtyard-riad-architecture-morocco-1200w.webp') }} 1200w"
+                sizes="100vw"
                 alt="Marrakech palace courtyard with traditional riad architecture, Morocco" width="1920" height="860"
                 loading="lazy" decoding="async">
         </div>
@@ -757,11 +773,23 @@
                 if (reduce) return; // honor reduced-motion: keep the first slide only
 
                 var current = 0;
-                setInterval(function() {
-                    slides[current].classList.remove('is-active');
-                    current = (current + 1) % slides.length;
-                    slides[current].classList.add('is-active');
-                }, 5000);
+
+                // Start rotating only once the page has finished loading. The
+                // crossfade repaints three full-viewport images, which was landing
+                // inside the initial render window and dominating paint/layout time.
+                function start() {
+                    setInterval(function() {
+                        slides[current].classList.remove('is-active');
+                        current = (current + 1) % slides.length;
+                        slides[current].classList.add('is-active');
+                    }, 5000);
+                }
+
+                if (document.readyState === 'complete') {
+                    setTimeout(start, 2000);
+                } else {
+                    window.addEventListener('load', function () { setTimeout(start, 2000); });
+                }
             })();
         </script>
     @endpush
@@ -780,10 +808,11 @@
 
                 <div data-anim-child="slide-up" class="col-lg-6">
                     <figure class="m-0">
-                        <img src="{{ asset('assets/images/hero/chefchaouen-blue-city-aerial-drone-view-morocco.avif') }}"
+                        <x-rimg src="assets/images/hero/chefchaouen-blue-city-aerial-drone-view-morocco.avif"
                             alt="Locals walking through a narrow terracotta-walled street in the Marrakech medina, Morocco"
                             title="Narrow street in the Marrakech medina, Morocco" class="rounded-12 w-100 h-auto"
-                            loading="lazy" width="960" height="640" style="object-fit: cover;">
+                            :w="960" :h="640" sizes="(max-width: 991px) 100vw, 50vw"
+                            style="object-fit: cover;" />
                         <figcaption class="visually-hidden">
                             A traditional narrow alley in the old medina of Marrakech, with locals and terracotta walls
                             capturing
@@ -793,7 +822,7 @@
                 </div>
 
                 <div data-anim-child="slide-up delay-2" class="col-lg-5">
-                    <h2 class="text-24 md:text-20 fw-700 mb-20" style="color: #C49539;">
+                    <h2 class="text-24 md:text-20 fw-700 mb-20" style="color: #8A6521;">
                         Discover Authentic Morocco Adventures — Your Gateway to Authentic Moroccan Experiences
                     </h2>
 
@@ -996,7 +1025,7 @@
                         <h2 class="text-30">Trending Morocco Destinations</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.locations.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco destinations">
+                        <a href="{{ route('front.locations.index') }}" class="buttonArrow d-flex items-center" aria-label="All destinations - see all Morocco destinations">
                             <span>All destinations</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1020,7 +1049,7 @@
                                 <div class="swiper-slide">
                                     <a href="{{ route('front.locations.show', $location->slug) }}"
                                         class="destAvatar -hover-image-scale"
-                                        title="{{ $title }}" aria-label="Explore {{ $location->name }}">
+                                        title="{{ $title }}">
                                         <div class="destAvatar__image -hover-image-scale__image">
                                             <img src="{{ $imgUrl }}" alt="{{ $alt }}"
                                                 title="{{ $title }}" loading="lazy" width="130" height="130">
@@ -1099,14 +1128,12 @@
                             craftsmanship, and unforgettable cultural experiences with Authentic Morocco Adventures.
                         </p>
 
-                        <button>
-                            <a href="{{ route('front.tours.multiDay') }}"
-                                class="button -md -accent-1 bg-dark-1 text-white mt-10"
-                                aria-label="Explore tours in Marrakech with Authentic Morocco Adventures">
-                                Explore Tours
-                                <i class="icon-arrow-top-right ml-10" aria-hidden="true"></i>
-                            </a>
-                        </button>
+                        <a href="{{ route('front.tours.multiDay') }}"
+                            class="button -md -accent-1 bg-dark-1 text-white mt-10"
+                            aria-label="Explore tours in Marrakech with Authentic Morocco Adventures">
+                            Explore Tours
+                            <i class="icon-arrow-top-right ml-10" aria-hidden="true"></i>
+                        </a>
 
                         {{-- Decorative travel illustration (self-contained SVG) —
                              a dotted flight path from a start pin to a destination
@@ -1205,7 +1232,7 @@
                         <h2 class="text-30 md:text-24">Best Morocco Multi-Day Tours</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.tours.multiDay') }}" class="buttonArrow d-flex items-center" aria-label="See all multi-day Morocco tours">
+                        <a href="{{ route('front.tours.multiDay') }}" class="buttonArrow d-flex items-center" aria-label="All tours - see all multi-day Morocco tours">
                             <span>All tours</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1339,7 +1366,7 @@
                         <h2 class="text-30">Best Morocco Day Trips</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.tours.dayTrips') }}" aria-label="See all Morocco day trips"
+                        <a href="{{ route('front.tours.dayTrips') }}" aria-label="All day trips - see all Morocco day trips"
                             class="buttonArrow d-flex items-center">
                             <span>All day trips</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
@@ -1541,7 +1568,7 @@
                         <h2 class="text-30">Marrakech Activities</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.activities.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco activities">
+                        <a href="{{ route('front.activities.index') }}" class="buttonArrow d-flex items-center" aria-label="All activities - see all Morocco activities">
                             <span>All activities</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -1697,7 +1724,7 @@
                         <h2 class="text-30">Morocco Treking Tours</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('front.trekking.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Atlas Mountains treks">
+                        <a href="{{ route('front.trekking.index') }}" class="buttonArrow d-flex items-center" aria-label="All treks - see all Atlas Mountains treks">
                             <span>All treks</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
@@ -2160,7 +2187,7 @@
                         <h2 class="text-30 md:text-24">Travel Articles</h2>
                     </div>
                     <div class="col-auto">
-                        <a href="{{ route('blog.index') }}" class="buttonArrow d-flex items-center" aria-label="See all Morocco travel articles">
+                        <a href="{{ route('blog.index') }}" class="buttonArrow d-flex items-center" aria-label="All articles - see all Morocco travel articles">
                             <span>All articles</span>
                             <i class="icon-arrow-top-right text-16 ml-10"></i>
                         </a>
