@@ -205,12 +205,12 @@
 
                     <div class="col-auto">
                         <div class="footer__images d-flex items-center x-gap-10">
-                            <img src="{{ asset('assets/img/footer/cards/1.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
-                            <img src="{{ asset('assets/img/footer/cards/2.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
-                            <img src="{{ asset('assets/img/footer/cards/3.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
-                            <img src="{{ asset('assets/img/footer/cards/4.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
-                            <img src="{{ asset('assets/img/footer/cards/5.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
-                            <img src="{{ asset('assets/img/footer/cards/6.png') }}" alt="" aria-hidden="true" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/1.png') }}" alt="Visa" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/2.png') }}" alt="Mastercard" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/3.png') }}" alt="Apple Pay" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/4.png') }}" alt="Discover" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/5.png') }}" alt="PayPal" width="38" height="24" loading="lazy" decoding="async">
+                            <img src="{{ asset('assets/img/footer/cards/6.png') }}" alt="American Express" width="38" height="24" loading="lazy" decoding="async">
                         </div>
                     </div>
                 </div>

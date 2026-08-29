@@ -1,4 +1,3 @@
-<!-- app2.blade.php -->
 <!DOCTYPE html>
 <html lang="en" data-x="html" data-x-toggle="html-overflow-hidden">
 
@@ -201,6 +200,9 @@
             }
         }
     </style>
+
+    {{-- Page-level styles pushed by child views --}}
+    @stack('styles')
 
     {{-- Page-level JSON-LD pushed by child views (see tours/activities/trekking details) --}}
     @stack('schema')

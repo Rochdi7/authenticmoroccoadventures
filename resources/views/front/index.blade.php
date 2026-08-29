@@ -480,18 +480,20 @@
     </style>
 @endpush
 
-{{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
-     They are field labels, not document headings, so they are now <span class="h5-label">.
-     This block reproduces the theme's original `.searchFormItem__content > h5` rules
-     verbatim so the rendering is unchanged. --}}
-<style>
-  .searchFormItem__content > .h5-label {
-    display: block;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.6;
-  }
-</style>
+@push('styles')
+    {{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
+         They are field labels, not document headings, so they are now
+         <span class="h5-label">. This reproduces the theme's original
+         `.searchFormItem__content > h5` rules verbatim, so rendering is unchanged. --}}
+    <style>
+        .searchFormItem__content > .h5-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+    </style>
+@endpush
 
 @section('content')
 
@@ -1945,8 +1947,7 @@
         <section data-anim-wrap class="relative layout-pt-xl layout-pb-xl">
             <div data-anim-child="slide-up delay-1" class="sectionBg md:d-none">
                 <img src="{{ asset('assets/img/testimonials/1/1.png') }}"
-                    alt="" aria-hidden="true" width="1920" height="871" loading="lazy" decoding="async"
-                    role="presentation">
+                    alt="" aria-hidden="true" width="1920" height="871" loading="lazy" decoding="async">
             </div>
 
             <div data-anim-child="slide-up delay-3" class="container">

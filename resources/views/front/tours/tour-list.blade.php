@@ -5,18 +5,20 @@
 @section('og_title', 'Morocco Tours and Sahara Desert Trips | Book Online')
 @section('og_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
 
-{{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
-     They are field labels, not document headings, so they are now <span class="h5-label">.
-     This block reproduces the theme's original `.searchFormItem__content > h5` rules
-     verbatim so the rendering is unchanged. --}}
-<style>
-  .searchFormItem__content > .h5-label {
-    display: block;
-    font-size: 15px;
-    font-weight: 500;
-    line-height: 1.6;
-  }
-</style>
+@push('styles')
+    {{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
+         They are field labels, not document headings, so they are now
+         <span class="h5-label">. This reproduces the theme's original
+         `.searchFormItem__content > h5` rules verbatim, so rendering is unchanged. --}}
+    <style>
+        .searchFormItem__content > .h5-label {
+            display: block;
+            font-size: 15px;
+            font-weight: 500;
+            line-height: 1.6;
+        }
+    </style>
+@endpush
 
 @section('content')
     {{-- Shift the tours hero image focus downward so the fortress/port at the
