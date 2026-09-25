@@ -72,7 +72,7 @@
                                 <a href="https://www.linkedin.com/in/authentic-moroccoadventures-99812a420/" target="_blank"
                                     class="icon-linkedin" aria-label="Follow us on LinkedIn"></a>
 
-                                <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank"
+                                <a href="https://fr.pinterest.com/authenticmoroccoadventure/" target="_blank"
                                     class="text-dark" aria-label="Follow us on Pinterest">
                                     <x-icon name="pinterest" />
                                 </a>

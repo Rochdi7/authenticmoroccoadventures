@@ -108,8 +108,9 @@ public/sitemap.xml, robots.txt
 - Visible brand name is always **Authentic Morocco Adventures**.
 - Contact email: `authenticmoroccoadventures@gmail.com` (display).
   Phone/WhatsApp: `+212 666 107 312`.
-- Social handles: `AuthenticMoroccoAdventures` (FB/IG/Pinterest/LinkedIn),
-  X handle `AuthMoroccoAdv`.
+- Social handles: `AuthenticMoroccoAdventures` (FB/IG/LinkedIn),
+  X handle `AuthMoroccoAdv`. Pinterest (confirmed):
+  `https://fr.pinterest.com/authenticmoroccoadventure/` (no trailing "s").
 - Card empty-state rules:
     - Location row is **hidden** when `$model->location?->name` is empty
       (no "Unknown Location"). Activity/Trek lists may use a clean `'Marrakech'` fallback.

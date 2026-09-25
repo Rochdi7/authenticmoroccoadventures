@@ -143,7 +143,7 @@
                                 </div>
 
                                 <div>
-                                    <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank"
+                                    <a href="https://fr.pinterest.com/authenticmoroccoadventure/" target="_blank"
                                         class="button -accent-1 size-40 flex-center bg-accent-1-05 rounded-full social-btn" aria-label="Follow us on Pinterest">
                                         <x-icon name="pinterest" />
                                     </a>

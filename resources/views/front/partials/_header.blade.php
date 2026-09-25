@@ -286,7 +286,7 @@
                 </div>
 
                 <div>
-                    <a href="https://fr.pinterest.com/amoroccoadventures/" target="_blank" class="d-block text-dark"
+                    <a href="https://fr.pinterest.com/authenticmoroccoadventure/" target="_blank" class="d-block text-dark"
                         aria-label="Pinterest">
                         <x-icon name="pinterest" />
                     </a>
