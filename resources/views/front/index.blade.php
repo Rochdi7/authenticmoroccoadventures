@@ -231,9 +231,23 @@
         /* Keep the real content above the watermark. */
         .ctaTextCol > h2,
         .ctaTextCol > p,
-        .ctaTextCol > button {
+        .ctaTextCol > .button {
             position: relative;
             z-index: 1;
+        }
+
+        /* Theme .button is display:flex, which stretched the CTA across the whole
+           column (and under the image). Size it to its content instead. */
+        .ctaTextCol > .button {
+            display: inline-flex;
+            width: auto;
+        }
+
+        @media (max-width: 575px) {
+            .ctaTextCol > .button {
+                display: flex;
+                width: 100%;
+            }
         }
 
         /* Corner accents (top-left / top-right), framing the heading with room
@@ -1129,7 +1143,7 @@
                         </p>
 
                         <a href="{{ route('front.tours.multiDay') }}"
-                            class="button -md -accent-1 bg-dark-1 text-white mt-10"
+                            class="button -md -accent-1 bg-dark-1 text-white mt-20"
                             aria-label="Explore tours in Marrakech with Authentic Morocco Adventures">
                             Explore Tours
                             <i class="icon-arrow-top-right ml-10" aria-hidden="true"></i>
