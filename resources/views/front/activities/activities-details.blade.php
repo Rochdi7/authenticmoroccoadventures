@@ -1,6 +1,8 @@
  @extends('front.layouts.app2')
 
  @php
+     // Per-page SEO from config/seo_pages.php (keyword mapping); falls back to the database text.
+     $seoOverride = config('seo_pages.activities.' . $activity->slug, []);
      $seoBase  = trim($activity->title ?? 'Morocco Activity');
      // Append the brand only when the result still fits Google's ~60-char title budget,
      // so descriptive keywords are never truncated away in the SERP.
@@ -14,6 +16,8 @@
          ? \Illuminate\Support\Str::limit($seoBase . ' - ' . $seoBody, 145)
          : '';
      $seoDesc = $seoDesc !== '' ? $seoDesc : 'Book ' . ($activity->title ?? 'this Morocco activity') . ' with Authentic Morocco Adventures — a local expert guide for an authentic Morocco experience.';
+     $seoTitle = $seoOverride['title'] ?? $seoTitle;
+     $seoDesc  = $seoOverride['description'] ?? $seoDesc;
      $seoImage = ($activity->getFirstMediaUrl('cover') ?: null);
  @endphp
 
@@ -106,7 +110,7 @@
                          </div>
 
                          <h1 class="text-40 sm:text-30 lh-14 mt-20">
-                             {{ $activity->title }}
+                             {{ $seoOverride['h1'] ?? $activity->title }}
                          </h1>
 
                          <div class="row y-gap-20 justify-between pt-20">

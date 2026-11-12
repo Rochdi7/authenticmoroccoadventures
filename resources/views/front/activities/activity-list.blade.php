@@ -1,9 +1,9 @@
 @extends('front.layouts.app2')
 
-@section('title', 'Morocco Activities & Day Excursions | Authentic Morocco')
-@section('meta_description', 'Book Morocco activities and half-day excursions - camel rides, quad biking, hammam, cooking classes and guided Marrakech experiences.')
-@section('og_title', 'Morocco Activities & Day Excursions | Authentic Morocco')
-@section('og_description', 'Book Morocco activities and half-day excursions - camel rides, quad biking, hammam, cooking classes and guided Marrakech experiences.')
+@section('title', 'Marrakech Activities & Experiences | Authentic Morocco')
+@section('meta_description', 'Marrakech activities with a local guide: hot air balloon, quad biking, camel rides, hammam, cooking class, food tour, Chez Ali and the Agafay luxury camp.')
+@section('og_title', 'Marrakech Activities & Experiences | Authentic Morocco')
+@section('og_description', 'Marrakech activities with a local guide: hot air balloon, quad biking, camel rides, hammam, cooking class, food tour, Chez Ali and the Agafay luxury camp.')
 
 @section('content')
     {{-- Shift the hero image focus downward so the foreground is visible instead of
@@ -50,7 +50,7 @@
                 <div class="col-xl-8 col-lg-10">
                     <div class="hero__content">
                         <h1 class="hero__title">
-                            Discover Morocco’s Best Activities
+                            Marrakech Activities & Experiences
                         </h1>
 
                         <p class="hero__text">

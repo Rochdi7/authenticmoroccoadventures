@@ -1,6 +1,7 @@
 @extends('front.layouts.app2')
 
 @section('title', 'Page Not Found - Authentic Morocco Adventures')
+@section('meta_robots', 'noindex, follow')
 
 @section('content')
 

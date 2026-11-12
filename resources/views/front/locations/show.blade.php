@@ -5,10 +5,28 @@
     $seoDesc = \Illuminate\Support\Str::limit(trim(strip_tags($location->seo_description ?: ($location->description ?? ''))), 155);
     $seoDesc = $seoDesc !== '' ? $seoDesc : 'Explore ' . ($location->name ?? 'this destination') . ' with Authentic Morocco Adventures — tours, activities and local expert travel tips.';
     $seoImage = optional($location->getFirstMedia('cover'))->getUrl() ?: null;
+
+    // Per-page SEO from config/seo_pages.php (keyword mapping); falls back to the database text.
+    $seoOverride = config('seo_pages.locations.' . $location->slug, []);
+    $seoTitle = $seoOverride['title'] ?? $seoTitle;
+    $seoDesc  = $seoOverride['description'] ?? $seoDesc;
+    $seoH1    = $seoOverride['h1'] ?? ('Featured Trips in ' . $location->name);
+
+    // Contextual links to this city's indexable tour listings (multi-day / day trips).
+    $cityListings = [];
+    foreach (['multi_day' => 'front.tours.multiDayFrom', 'day_trip' => 'front.tours.dayTripsFrom'] as $listingType => $listingRoute) {
+        $listingCfg = config('seo_pages.listings.' . $listingType . '|' . $location->slug);
+        if ($listingCfg && empty($listingCfg['robots'])) {
+            $cityListings[] = ['url' => route($listingRoute, $location->slug), 'text' => $listingCfg['h1']];
+        }
+    }
 @endphp
 
 @section('title', $seoTitle)
 @section('meta_description', $seoDesc)
+@if (!empty($seoOverride['robots']))
+    @section('meta_robots', $seoOverride['robots'])
+@endif
 @section('og_type', 'article')
 @section('og_title', $seoTitle)
 @section('og_description', $seoDesc)
@@ -21,7 +39,14 @@
         <div data-anim-wrap class="container">
             <div data-anim-child="slide-up" class="row y-gap-10 justify-between items-center">
                 <div class="col-auto">
-                    <h1 class="text-30">Featured Trips in {{ $location->name }}</h1>
+                    <h1 class="text-30">{{ $seoH1 }}</h1>
+                    @if (!empty($cityListings))
+                        <p class="text-15 mt-10">
+                            @foreach ($cityListings as $cityListing)
+                                <a href="{{ $cityListing['url'] }}" class="text-accent-1" style="text-decoration: underline;">{{ $cityListing['text'] }}</a>@if (!$loop->last) · @endif
+                            @endforeach
+                        </p>
+                    @endif
                 </div>
             </div>
 

@@ -86,7 +86,7 @@
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>https://www.authenticmoroccoadventures.com/tours/merzouga-desert-tour-from-marrakech-2-days</loc>
+    <loc>https://www.authenticmoroccoadventures.com/tours/2-day-desert-tour-from-marrakech-to-merzouga</loc>
     <lastmod>2026-07-12T17:15:38+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -98,19 +98,19 @@
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>https://www.authenticmoroccoadventures.com/tours/sahara-desert-tour-from-marrakech-3-days-to-chigaga</loc>
+    <loc>https://www.authenticmoroccoadventures.com/tours/3-day-sahara-desert-tour-from-marrakech-to-chigaga</loc>
     <lastmod>2026-07-12T17:15:45+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>https://www.authenticmoroccoadventures.com/tours/marrakech-desert-tour-3-days-to-merzouga-dunes</loc>
+    <loc>https://www.authenticmoroccoadventures.com/tours/3-day-desert-tour-from-marrakech-to-merzouga-dunes</loc>
     <lastmod>2026-07-12T17:15:47+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>https://www.authenticmoroccoadventures.com/tours/marrakech-to-fes-desert-tour-3-days-via-sahara</loc>
+    <loc>https://www.authenticmoroccoadventures.com/tours/3-day-desert-tour-from-marrakech-to-fes-via-sahara</loc>
     <lastmod>2026-07-12T17:15:50+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -128,7 +128,7 @@
     <priority>0.8</priority>
             </url>
     <url>
-    <loc>https://www.authenticmoroccoadventures.com/tours/luxury-sahara-desert-tour-from-marrakech-5-days</loc>
+    <loc>https://www.authenticmoroccoadventures.com/tours/5-day-luxury-sahara-desert-tour-from-marrakech</loc>
     <lastmod>2026-07-12T17:15:58+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
@@ -547,8 +547,63 @@
     <priority>0.7</priority>
             </url>
     <url>
-    <loc>https://www.authenticmoroccoadventures.com/locations/morocco</loc>
-    <lastmod>2026-07-12T23:49:56+00:00</lastmod>
+    <loc>https://www.authenticmoroccoadventures.com/blog/best-places-to-visit-in-morocco-in-september</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/multi-day</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/day-trips</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/multi-day/from/marrakech-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/day-trips/from/marrakech-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/multi-day/from/fes-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/day-trips/from/fes-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/multi-day/from/casablanca-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/day-trips/from/casablanca-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+            </url>
+    <url>
+    <loc>https://www.authenticmoroccoadventures.com/tours/multi-day/from/tangier-morocco</loc>
+    <lastmod>2026-11-12T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
             </url>
 </urlset>

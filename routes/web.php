@@ -163,6 +163,8 @@ Route::middleware(['auth'])->prefix('adminPanel')->name('admin.')->group(functio
 });
 
 // Optional: Fallback route for unmatched URLs
+// Unknown URLs: answer with a real HTTP 404 (renders resources/views/errors/404.blade.php).
+// Redirecting to /404 (HTTP 200) made every broken URL a soft 404.
 Route::fallback(function () {
-    return redirect()->route('error.404');
+    abort(404);
 });

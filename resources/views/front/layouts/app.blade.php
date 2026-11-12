@@ -61,7 +61,7 @@
 
         {{-- Meta description --}}
         <meta name="description"
-              content="Private Morocco tours with a local guide - Sahara desert trips, Marrakech excursions and Atlas Mountains treks, tailored to how you want to travel.">
+              content="Private Morocco tours with local travel specialists: Sahara desert adventures, Marrakech activities, Atlas treks and day trips, planned around you.">
 
         {{-- Canonical --}}
         <link rel="canonical" href="https://www.authenticmoroccoadventures.com/">

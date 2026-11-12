@@ -32,10 +32,15 @@ class FrontTourController extends Controller
 
         // New: resolve location_slug → id
         $locationId = null;
+        $location = null;
         if ($request->filled('location_slug')) {
             $location = Location::where('slug', $request->location_slug)->first();
             if ($location) {
                 $locationId = $location->id;
+            } else {
+                // Unknown city in /tours/{type}/from/{city}: a real 404 instead of
+                // silently listing every tour (an unlimited duplicate-page generator).
+                abort(404);
             }
         }
 
@@ -154,14 +159,83 @@ class FrontTourController extends Controller
         $tourCategories = TourCategory::all();
         $locations = Location::all();
 
+        $listingSeo = $this->listingSeo($request, $location, $tours->total(), $tours->currentPage());
+
         return view('front.tours.tour-list', compact(
             'tours',
             'tourCategories',
             'locations',
             'durations',
             'minPrice',
-            'maxPrice'
+            'maxPrice',
+            'listingSeo'
         ));
+    }
+
+    /**
+     * Title / H1 / meta / robots / canonical for the tour listing URLs
+     * (/tours, /tours/multi-day, /tours/day-trips, /tours/{type}/from/{city}).
+     * Wording comes from config/seo_pages.php ("listings").
+     */
+    private function listingSeo(Request $request, ?Location $location, int $total, int $page): array
+    {
+        $type = (string) $request->input('type', '');
+        $type = in_array($type, ['multi_day', 'day_trip'], true) ? $type : '';
+        $slug = $location->slug ?? '';
+
+        $seo = config('seo_pages.listings.' . $type . '|' . $slug);
+
+        if (!$seo) {
+            // Combination without a dedicated entry: still give it a unique title.
+            $city = $location ? trim(str_replace(', Morocco', '', $location->name)) : 'Morocco';
+            $label = $type === 'day_trip' ? 'Day Trips from ' . $city : 'Tours from ' . $city;
+            $seo = [
+                'title'       => $label . ' | Authentic Morocco Adventures',
+                'h1'          => 'Private ' . $label,
+                'description' => 'Private ' . strtolower($label) . ' with Authentic Morocco Adventures and a local driver-guide.',
+            ];
+        }
+
+        $robots = $seo['robots'] ?? 'index, follow';
+
+        // No tours to show (e.g. day trips from a city with none): keep it out of the index.
+        if ($total === 0) {
+            $robots = 'noindex, follow';
+        }
+
+        // Any filter / sort / search parameter (everything except ?page=) creates
+        // a thin variant of the clean page: noindex it, canonical to the clean URL.
+        // The /tours/multi-day[...] routes merge 'type' / 'location_slug' into the query
+        // bag themselves; those are part of the clean URL, not user filters.
+        $routeName = optional($request->route())->getName();
+        $routeSupplied = in_array($routeName, [
+            'front.tours.multiDay', 'front.tours.dayTrips', 'front.tours.multiDayFrom', 'front.tours.dayTripsFrom',
+        ], true) ? ['type', 'location_slug'] : [];
+        $filterParams = collect($request->query())
+            ->except(array_merge(['page'], $routeSupplied))
+            ->filter(fn ($v) => $v !== null && $v !== '' && $v !== []);
+        if ($filterParams->isNotEmpty()) {
+            $robots = 'noindex, follow';
+        }
+
+        $canonical = url()->current();
+        $title = $seo['title'];
+        if ($page > 1) {
+            // Paginated pages: self-referencing canonical and a distinct title.
+            $canonical .= '?page=' . $page;
+            $title .= ' – Page ' . $page;
+        }
+
+        return [
+            'title'         => $title,
+            'h1'            => $seo['h1'] ?? $seo['title'],
+            'description'   => $seo['description'],
+            'intro'         => isset($seo['intro']) ? str_replace(':count', (string) $total, $seo['intro']) : null,
+            'robots'        => $robots,
+            'canonical'     => $filterParams->isNotEmpty() ? url()->current() : $canonical,
+            'location_url'  => ($location && isset($seo['location_link'])) ? route('front.locations.show', $location->slug) : null,
+            'location_text' => $seo['location_link'] ?? null,
+        ];
     }
 
     public function show($slug)
@@ -169,7 +243,17 @@ class FrontTourController extends Controller
         $tour = Tour::with(['location', 'category', 'media'])
             ->withCount('reviews')
             ->where('slug', $slug)
-            ->firstOrFail();
+            ->first();
+
+        if (!$tour) {
+            // Renamed tours: 301 the old slug to its replacement (config/tour_slug_redirects.php).
+            // Only fires when the old slug no longer exists, so it never hides a live tour.
+            $newSlug = config('tour_slug_redirects.' . $slug);
+            if ($newSlug && $newSlug !== $slug) {
+                return redirect()->route('front.tours.show', $newSlug, 301);
+            }
+            abort(404);
+        }
         // Show the cover image as the first slide, followed by any gallery images.
         $gallery = $tour->getMedia('gallery');
         $cover = $tour->getFirstMedia('cover');

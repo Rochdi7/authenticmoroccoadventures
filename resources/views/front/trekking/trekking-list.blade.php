@@ -1,9 +1,9 @@
 @extends('front.layouts.app2')
 
-@section('title', 'Atlas Mountains Trekking Tours in Morocco | Guided Treks')
-@section('meta_description', 'Guided Atlas Mountains trekking in Morocco, including Mount Toubkal ascents and Berber village routes with experienced local mountain guides.')
-@section('og_title', 'Atlas Mountains Trekking Tours in Morocco | Guided Treks')
-@section('og_description', 'Guided Atlas Mountains trekking in Morocco, including Mount Toubkal ascents and Berber village routes with experienced local mountain guides.')
+@section('title', 'Atlas Mountain Trekking in Morocco | Toubkal & Villages')
+@section('meta_description', 'Atlas mountain trekking in Morocco: guided Mount Toubkal summit treks and Berber village routes from Imlil with experienced local mountain guides.')
+@section('og_title', 'Atlas Mountain Trekking in Morocco | Toubkal & Villages')
+@section('og_description', 'Atlas mountain trekking in Morocco: guided Mount Toubkal summit treks and Berber village routes from Imlil with experienced local mountain guides.')
 
 @section('content')
     {{-- Shift the hero image focus downward so the foreground is visible instead of
@@ -49,12 +49,12 @@
                 <div class="col-xl-8 col-lg-10">
                     <div class="hero__content">
                         <h1 class="hero__title">
-                            Trek the Majestic Atlas Mountains
+                            Atlas Mountain Trekking in Morocco
                         </h1>
 
                         <p class="hero__text">
                             Conquer breathtaking peaks and explore rugged trails in Morocco’s High Atlas. Experience
-                            unforgettable trekking adventures led by expert local guides from LocalMorocco Tours.
+                            unforgettable trekking adventures led by expert local guides from Authentic Morocco Adventures.
                         </p>
 
                         <form method="GET" action="{{ route('front.trekking.index') }}">

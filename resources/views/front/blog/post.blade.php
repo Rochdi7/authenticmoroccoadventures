@@ -1,8 +1,34 @@
  @extends('front.layouts.app2')
- @section('title', 'Morocco Travel Blog - Tips, Guides & Itineraries')
-@section('meta_description', 'Morocco travel tips, destination guides and itinerary ideas from local guides - when to visit, what to pack and where to go in Morocco.')
-@section('og_title', 'Morocco Travel Blog - Tips, Guides & Itineraries')
-@section('og_description', 'Morocco travel tips, destination guides and itinerary ideas from local guides - when to visit, what to pack and where to go in Morocco.')
+@php
+    // One view serves the blog index, categories, tags and search. Only the index is a
+    // keyword target ("morocco travel blog"); the other variants are thin lists.
+    $blogDesc = 'Morocco travel blog with tips and guides from local experts: when to visit, what to pack, itineraries and where to go in Morocco.';
+    $blogRobots = 'index, follow';
+    if (!empty($category)) {
+        $blogTitle = ($category->name ?? 'Category') . ' | Morocco Travel Blog';
+        $blogH1 = $category->name ?? 'Morocco Travel Blog';
+        $blogRobots = 'noindex, follow';
+    } elseif (!empty($tag)) {
+        $blogTitle = 'Posts tagged ' . ($tag->name ?? '') . ' | Morocco Travel Blog';
+        $blogH1 = 'Posts tagged ' . ($tag->name ?? '');
+        $blogRobots = 'noindex, follow';
+    } elseif (isset($query)) {
+        $blogTitle = 'Search results | Morocco Travel Blog';
+        $blogH1 = 'Search results';
+        $blogRobots = 'noindex, follow';
+    } else {
+        $blogTitle = 'Morocco Travel Blog | Tips & Guides from Local Experts';
+        $blogH1 = 'Morocco Travel Blog';
+    }
+    if (request()->integer('page') > 1) {
+        $blogTitle .= ' – Page ' . request()->integer('page');
+    }
+@endphp
+@section('title', $blogTitle)
+@section('meta_description', $blogDesc)
+@section('og_title', $blogTitle)
+@section('og_description', $blogDesc)
+@section('meta_robots', $blogRobots)
 
  @section('content')
 
@@ -52,7 +78,7 @@
                  <div class="col-xl-12">
                      <div class="hero__content">
                          <h1 class="hero__title">
-                             Your guide to everywhere
+                             {{ $blogH1 }}
                          </h1>
                          <p class="hero__text">
                              Find inspiration, guides and stories for wherever you're going. Select a destination.

@@ -1,9 +1,9 @@
 @extends('front.layouts.app2')
 
-@section('title', 'Morocco Destinations & Places to Visit')
-@section('meta_description', 'Explore Morocco destination guides - Marrakech, Fes, Merzouga, Chefchaouen and more, with the best tours and things to do in each place.')
-@section('og_title', 'Morocco Destinations & Places to Visit')
-@section('og_description', 'Explore Morocco destination guides - Marrakech, Fes, Merzouga, Chefchaouen and more, with the best tours and things to do in each place.')
+@section('title', 'Places to Visit in Morocco | Destinations & Tours')
+@section('meta_description', 'Places to visit in Morocco: Marrakech, Fes, Chefchaouen, Casablanca, Tangier, Agadir and Ouarzazate, with the best private tours and things to do in each.')
+@section('og_title', 'Places to Visit in Morocco | Destinations & Tours')
+@section('og_description', 'Places to visit in Morocco: Marrakech, Fes, Chefchaouen, Casablanca, Tangier, Agadir and Ouarzazate, with the best private tours and things to do in each.')
 
 @section('content')
 
@@ -22,7 +22,7 @@
                 <div class="col-12">
                     <div class="pageHeader__content text-center">
                         <h1 class="pageHeader__title">
-                            Morocco
+                            Places to Visit in Morocco
                         </h1>
 
                         <p class="pageHeader__text">

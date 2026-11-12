@@ -10,7 +10,31 @@
     $seoDesc = \Illuminate\Support\Str::limit(trim(strip_tags($post->excerpt ?? '')), 155);
     $seoDesc = $seoDesc !== '' ? $seoDesc : 'Read ' . ($post->title ?? 'this article') . ' on the Authentic Morocco Adventures blog — Morocco travel tips, guides and stories from local experts.';
     $seoImage = ($post->getFirstMediaUrl('featured_image') ?: null);
+
+    // Per-post SEO from config/seo_pages.php (keyword mapping); falls back to the database text.
+    $seoOverride = config('seo_pages.posts.' . $post->slug, []);
+    $seoTitle = $seoOverride['title'] ?? $seoTitle;
+    $seoDesc  = $seoOverride['description'] ?? $seoDesc;
+    $seoH1    = $seoOverride['h1'] ?? $post->title;
+
+    // BlogPosting structured data, built only from fields that hold real data.
+    $postSchema = array_filter([
+        '@context'      => 'https://schema.org',
+        '@type'         => 'BlogPosting',
+        'headline'      => $seoH1,
+        'description'   => $seoDesc ?: null,
+        'image'         => $seoImage,
+        'datePublished' => optional($post->published_at ?? $post->created_at)->toAtomString(),
+        'dateModified'  => optional($post->updated_at)->toAtomString(),
+        'author'        => optional($post->author)->name ? ['@type' => 'Person', 'name' => $post->author->name] : ['@type' => 'Organization', 'name' => 'Authentic Morocco Adventures'],
+        'publisher'     => ['@type' => 'Organization', 'name' => 'Authentic Morocco Adventures', 'url' => url('/')],
+        'mainEntityOfPage' => url()->current(),
+    ]);
 @endphp
+
+@push('schema')
+    <script type="application/ld+json">{!! json_encode($postSchema, JSON_UNESCAPED_SLASHES | JSON_UNESCAPED_UNICODE) !!}</script>
+@endpush
 
 @section('title', $seoTitle)
 @section('meta_description', $seoDesc)
@@ -53,7 +77,7 @@
                 <div class="col-xl-12">
                     <div class="hero__content">
                         <h1 class="hero__title">
-                            {{ $post->title }}
+                            {{ $seoH1 }}
                         </h1>
                         <p class="hero__text">
                             {{ $post->excerpt ?? "Find inspiration, guides and stories for wherever you're going. Select a destination." }}

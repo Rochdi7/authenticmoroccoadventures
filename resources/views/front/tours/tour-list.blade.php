@@ -1,9 +1,16 @@
 @extends('front.layouts.app2')
 
-@section('title', 'Morocco Tours and Sahara Desert Trips | Book Online')
-@section('meta_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
-@section('og_title', 'Morocco Tours and Sahara Desert Trips | Book Online')
-@section('og_description', 'Browse 62 Morocco tours from Marrakech, Fes and Tangier - Sahara desert trips, imperial cities and multi-day itineraries with a local guide.')
+{{-- SEO per listing URL (/tours, /tours/multi-day, /tours/day-trips, /tours/{type}/from/{city}):
+     built in FrontTourController::listingSeo() from config/seo_pages.php. --}}
+@section('title', $listingSeo['title'])
+@section('meta_description', $listingSeo['description'])
+@section('og_title', $listingSeo['title'])
+@section('og_description', $listingSeo['description'])
+@section('twitter_title', $listingSeo['title'])
+@section('twitter_description', $listingSeo['description'])
+@section('canonical', $listingSeo['canonical'])
+@section('og_url', $listingSeo['canonical'])
+@section('meta_robots', $listingSeo['robots'])
 
 @push('styles')
     {{-- Accessibility: these labels were <h5>, which skipped heading levels (h1 -> h5).
@@ -66,12 +73,14 @@
                 <div class="col-xl-8 col-lg-10">
                     <div class="hero__content">
                         <h1 class="hero__title">
-                            Discover Morocco’s Best Tours
+                            {{ $listingSeo['h1'] }}
                         </h1>
 
                         <p class="hero__text">
-                            Explore breathtaking landscapes, vibrant cities, and rich culture. Find your perfect Moroccan
-                            adventure from our diverse tour selection.
+                            {{ $listingSeo['intro'] ?? 'Explore breathtaking landscapes, vibrant cities, and rich culture. Find your perfect Moroccan adventure from our diverse tour selection.' }}
+                            @if (!empty($listingSeo['location_url']))
+                                <a href="{{ $listingSeo['location_url'] }}" class="text-white" style="text-decoration: underline;">{{ $listingSeo['location_text'] }}</a>
+                            @endif
                         </p>
 
                         <form method="GET" action="{{ route('front.tours.index') }}">
